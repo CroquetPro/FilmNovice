@@ -16,6 +16,7 @@ Film Novice allows users to:
 - [ ] View Movie Reviews contributed by users
 - [ ] Search for movies
 - [ ] Create an account
+
 -When Signed Up-
 - [ ] Log in / Log out
 - [ ] Create, read, edit, and delete reviews
