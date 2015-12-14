@@ -33,8 +33,7 @@ column name | data type | details
 id          | integer   | not null, primary key
 up_or_down  | boolean   | not null
 review_id   | integer   | not null, foreign key (references reviews)
-voter_name  | integer   | not null, foreign key (references users), indexed,
-                          unique [review_id]
+voter_name  | integer   | not null, foreign key (references users), indexed, unique [review_id]
 author_id   | integer   | not null, foreign key (references users), indexed
 
 
