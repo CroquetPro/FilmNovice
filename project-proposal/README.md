@@ -11,7 +11,7 @@ Rails and React.js.
 Film Novice allows users to:
 
 -When Visiting-
-- [ ] View Movie Index
+- [ ] View Movies Index
 - [ ] View Movie Details including cast/crew/plot synopsis
 - [ ] View Movie Reviews contributed by users
 - [ ] Search for movies
@@ -19,8 +19,8 @@ Film Novice allows users to:
 
 -When Signed Up-
 - [ ] Log in / Log out
-- [ ] Create, read, edit, and delete reviews
-- [ ] Upvote or Downvote Other User's Reviews (one vote per)
+- [ ] Create, edit, and delete own reviews
+- [ ] Upvote or Downvote other user's reviews (one vote per)
 - [ ] Add Movies to be reviewed
 
 ## Design Docs
@@ -75,6 +75,7 @@ about cast/crew and plot synopsis. (I found Open Movie Data Base API at
   http://www.omdbapi.com/).
 
 ### Bonus Features (TBD)
-- [ ] Prettify transitions
+- [ ] Prettify transitions and the whole site
 - [ ] Pagination / infinite scroll for Movie Index
+- [ ] Searchable by director, writer, actor
 - [ ] Multiple sessions
