@@ -8,16 +8,20 @@
 </head>
 <body>
   <h1>Film Novice</h1>
-  <% if flash[:errors] %>
-    <% flash[:errors].each do |error| %>
-      <%= error %> <br>
+  <div class='flash'>
+    <% if flash[:errors] %>
+      <% flash[:errors].each do |error| %>
+        <%= error %> <br>
+      <% end %>
     <% end %>
-  <% end %>
+  </div>
 
-  <% if current_user %>
-    <%= current_user.username %>
-    <%= button_to 'Sign Out', session_url, method: :delete %>
-  <% end %>
+  <div class="user">
+      <% if current_user %>
+      <%= current_user.username %>
+      <%= button_to 'Sign Out', session_url, method: :delete %>
+      <% end %>
+  </div>
 
 <%= yield %>
 

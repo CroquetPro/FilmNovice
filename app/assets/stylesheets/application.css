@@ -16,3 +16,12 @@
  h1 {
    text-align: center;
  }
+
+ .flash {
+   color: red;
+   text-align: right;
+ }
+
+ .user {
+   text-align: right;
+ }
