@@ -35,10 +35,9 @@ Film Novice allows users to:
 ### Phase 1: User Authentication, Movie Model and JSON API (1.5 days)
 
 In Phase 1, I will begin by implementing user signup and authentication (using
-BCrypt). The Signup/Login will be entirely within the navbar.
+BCrypt). The Login will be entirely within the navbar.
 Users will stay on the root page when signed in, but with additional information
-(username, vote tally, logout button)
-in the navbar. Before building out the
+(username, vote tally, logout button) in the navbar. Before building out the
 front end, I will begin by setting up a full JSON API for Movies. Users can
 bring up movies in a separate view by searching for the title.
 

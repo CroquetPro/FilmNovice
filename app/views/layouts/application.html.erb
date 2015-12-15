@@ -7,6 +7,17 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <h1>Film Novice</h1>
+  <% if flash[:errors] %>
+    <% flash[:errors].each do |error| %>
+      <%= error %> <br>
+    <% end %>
+  <% end %>
+
+  <% if current_user %>
+    <%= current_user.username %>
+    <%= button_to 'Sign Out', session_url, method: :delete %>
+  <% end %>
 
 <%= yield %>
 
