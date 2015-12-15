@@ -72,6 +72,7 @@ GEM
     mini_portile2 (2.0.0)
     minitest (5.8.3)
     multi_json (1.11.2)
+    newrelic_rpm (3.14.1.311)
     nokogiri (1.6.7)
       mini_portile2 (~> 2.0.0.rc2)
     pg (0.18.4)
@@ -143,11 +144,12 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bcrypt
+  bcrypt (~> 3.1.7)
   byebug
   coffee-rails (~> 4.1.0)
   jbuilder (~> 2.0)
   jquery-rails
+  newrelic_rpm
   pg
   rails (= 4.2.4)
   sass-rails (~> 5.0)
