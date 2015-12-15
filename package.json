@@ -1,0 +1,36 @@
+{
+  "name": "FilmNoviceApp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "film_novice.jsx",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CroquetPro/FilmNovice.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "babel-core": "^6.1.4",
+    "babel-loader": "^6.1.0",
+    "babel-preset-react": "^6.1.4",
+    "flux": "^2.1.1",
+    "history": "1.13.x",
+    "jquery": "^2.1.4",
+    "react": "^0.14.2",
+    "react-addons-linked-state-mixin": "^0.14.2",
+    "react-dom": "^0.14.2",
+    "react-router": "^1.0.2",
+    "webpack": "^1.12.4"
+  },
+  "bugs": {
+    "url": "https://github.com/CroquetPro/FilmNovice/issues"
+  },
+  "homepage": "https://github.com/CroquetPro/FilmNovice#readme"
+}

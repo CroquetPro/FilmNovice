@@ -11,3 +11,10 @@
 /log/*
 !/log/.keep
 /tmp
+
+#Ignore npm modules
+/node_modules
+
+#Ignore bundle
+/app/assets/javascripts/bundle.js
+/app/assets/javascripts/bundle.js.map
