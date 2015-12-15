@@ -13,8 +13,25 @@
  *= require_tree .
  *= require_self
  */
- h1 {
+ html, body, header, nav, h1, a,
+ul, li, strong, main, button, i,
+section, img, div, h2, p, form,
+fieldset, label, input, textarea,
+span, article, footer, time, small {
+
+}
+
+body {
+  background: black;
+}
+
+h1 {
    text-align: center;
+   color: white;
+ }
+
+ .NavBar {
+   background: #707070;
  }
 
  .flash {
@@ -23,5 +40,6 @@
  }
 
  .user {
+   color: gray;
    text-align: right;
  }
