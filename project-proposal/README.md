@@ -42,6 +42,8 @@ in the navbar. Before building out the
 front end, I will begin by setting up a full JSON API for Movies. Users can
 bring up movies in a separate view by searching for the title.
 
+[Details][phase-one]
+
 ### Phase 2: Flux Architecture and Movie CRUD (2.5 days)
 
 Phase 2 is focused on setting up Flux, the React Router, and the React view
@@ -53,12 +55,16 @@ Movies can be created, read, edited and destroyed in the browser.
 Lastly, while constructing the views I will start using basic CSS for
 styling.
 
+[Details][phase-two]
+
 ### Phase 3: Contributions and Votes (2 days)
 
 Phase 3 adds crowdsourced reviews to the Movies. Seed data will be 1* amazon
 reviews. Create JSON API for Reviews. Reviews can also now be voted up or down.
 Votes will belong to the voter while also applying to the review, and the
 review author.
+
+[Details][phase-three]
 
 ### Phase 4: User contribution page and Top Charts (2 days)
 
@@ -68,13 +74,23 @@ and the specific vote totals of those contributions as well as their total
 votes. This data will also be used to populate the top contributors charts on
 the root page.
 
+[Details][phase-four]
+
 ### Phase 5: Beautification (1 day)
 
 Phase 5 Allows for time to really spice up the CSS transitions so movie items
-fly onto the page and look similar to hbogo.
+fly onto the page with a look inspired by hbogo.
+
+[Details][phase-five]
 
 ### Bonus Features (TBD)
 - [ ] connect to IMDB api (http://www.omdbapi.com/).
 - [ ] Pagination / infinite scroll for Movie Index
 - [ ] Searchable by director, writer, actor
 - [ ] Multiple sessions
+
+[phase-one]: ./docs/phases/phase1.md
+[phase-two]: ./docs/phases/phase2.md
+[phase-three]: ./docs/phases/phase3.md
+[phase-four]: ./docs/phases/phase4.md
+[phase-five]: ./docs/phases/phase5.md
