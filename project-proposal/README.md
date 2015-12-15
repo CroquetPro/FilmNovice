@@ -68,14 +68,13 @@ and the specific vote totals of those contributions as well as their total
 votes. This data will also be used to populate the top contributors charts on
 the root page.
 
-### Phase 5: Connecting to IMDB (1 day)
+### Phase 5: Beautification (1 day)
 
-Phase 5 introduces allows for auto-filling of new movie forms with IMDB data
-about cast/crew and plot synopsis. (I found Open Movie Data Base API at
-  http://www.omdbapi.com/).
+Phase 5 Allows for time to really spice up the CSS transitions so movie items
+fly onto the page and look similar to hbogo.
 
 ### Bonus Features (TBD)
-- [ ] Prettify transitions and the whole site
+- [ ] connect to IMDB api (http://www.omdbapi.com/).
 - [ ] Pagination / infinite scroll for Movie Index
 - [ ] Searchable by director, writer, actor
 - [ ] Multiple sessions
