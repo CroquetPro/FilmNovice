@@ -3,8 +3,8 @@ var React = require('react');
 var NavBar = React.createClass({
   render: function(){
     // <Search />
-    // <User />
     // <Errors />
+    // <User />
     return(
       <div className='NavBar'>
         <h1>Film Novice</h1>
