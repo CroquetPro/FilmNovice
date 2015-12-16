@@ -10,7 +10,7 @@ var MovieActions = {
     });
   },
 
-  receiveMovie: function(movie){
+  receiveSingle: function(movie){
     AppDispatcher.dispatch({
       actionType: MovieConstants.MOVIE_RECEIVED,
       movie: movie

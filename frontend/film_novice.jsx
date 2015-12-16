@@ -4,7 +4,8 @@ var React = require('react'),
     Route = require('react-router').Route,
     IndexRoute = require('react-router').IndexRoute,
     NavBar = require('./components/header/navbar'),
-    MovieIndex = require('./components/movies/index');
+    MoviesIndex = require('./components/movies/index'),
+    MovieShow = require('./components/movies/show');
 
 document.addEventListener('DOMContentLoaded', function () {
   var App = React.createClass({
@@ -20,10 +21,10 @@ document.addEventListener('DOMContentLoaded', function () {
   var routes = (
     <Route path="/" component={App} >
       <IndexRoute component={MoviesIndex} />
+      <Route path="movies/:movieId" component={MovieShow} />
     </Route>);
   var content = document.querySelector('#content');
   ReactDOM.render(<Router>{routes}</Router>, content);
 });
 // <Route path="movies/new" component={MovieForm} />
-// <Route path="movies/:movieId" component={MovieShow} />
 // <Route path="users/:userId" component={UserShow} />

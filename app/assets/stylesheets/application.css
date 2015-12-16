@@ -18,7 +18,7 @@ ul, li, strong, main, button, i,
 section, img, div, h2, p, form,
 fieldset, label, input, textarea,
 span, article, footer, time, small {
-
+  color: white;
 }
 
 body {
