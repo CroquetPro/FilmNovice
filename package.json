@@ -1,13 +1,13 @@
 {
   "name": "FilmNoviceApp",
   "version": "1.0.0",
-  "description": "",
+  "description": "Amateur review of classic movies",
   "main": "film_novice.jsx",
   "directories": {
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "postinstall": "./node_modules/.bin/webpack"
   },
   "repository": {
     "type": "git",
@@ -32,5 +32,9 @@
   "bugs": {
     "url": "https://github.com/CroquetPro/FilmNovice/issues"
   },
+"engines": {
+  "node": "4.1.1",
+  "npm": "2.1.x"
+},
   "homepage": "https://github.com/CroquetPro/FilmNovice#readme"
 }

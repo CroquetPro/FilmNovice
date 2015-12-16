@@ -32,8 +32,8 @@ MovieStore.__onDispatch = function (payload) {
         resetMovies([payload.movie]);
         MovieStore.__emitChange();
       break;
-    }
   }
+}
 
 
 module.exports = MovieStore;
