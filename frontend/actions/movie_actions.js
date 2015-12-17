@@ -15,6 +15,13 @@ var MovieActions = {
       actionType: MovieConstants.MOVIE_RECEIVED,
       movie: movie
     });
+  },
+
+  reportDestruction: function(movie){
+    AppDispatcher.dispatch({
+      actionType: MovieConstants.MOVIE_DESTROYED,
+      movie: movie
+    });
   }
 };
 

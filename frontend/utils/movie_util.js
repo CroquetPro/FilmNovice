@@ -30,6 +30,16 @@ var MovieUtil = {
         MovieActions.receiveSingle(movie);
       }
     });
+  },
+
+  deleteMovie: function(id){
+    $.ajax({
+      url: "api/movies/" + id,
+      type: "DELETE",
+      success: function(movie){
+        MovieActions.reportDestruction(movie);
+      }
+    });
   }
 };
 

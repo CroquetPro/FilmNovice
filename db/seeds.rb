@@ -13,6 +13,21 @@ movies = [
     director: 'Quentin Tarantino',
     actors: 'John Travolta, Samuel L. Jackson, Uma Thurman, Bruce Willis',
     plot: "The lives of two mob hit men, a boxer, a gangster's wife, and a pair of diner bandits intertwine in four tales of violence and redemption."
+  },
+  { title: "The Dark Knight", year: 2008,
+    director: "Christopher Nolan",
+    actors: "Christian Bale, Heath Ledger, Aaron Eckhart",
+    plot: "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, the caped crusader must come to terms with one of the greatest psychological tests of his ability to fight injustice."
+  },
+  { title: "The Big Lebowski", year: 1998,
+    director: "Joel Coen",
+    actors: "Jeff Bridges, John Goodman, Julianne Moore, Steve Buscemi",
+    plot: "'The Dude' Lebowski, mistaken for a millionaire Lebowski, seeks restitution for his ruined rug and enlists his bowling buddies to help get it."
+  },
+  { title: "The Shawshank Redemption", year: 1994,
+    director: "Frank Darabont",
+    actors: "Tim Robbins, Morgan Freeman, Bob Gunton",
+    plot: "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency."
   }
 ]
 

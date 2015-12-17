@@ -36,6 +36,12 @@ var Show = React.createClass({
     this.history.pushState(null, url);
   },
 
+  handleDelete: function(event){
+    var movieId = this.props.params['movieId'];
+    MovieUtil.deleteMovie(movieId);
+    this.history.pushState(null, "/");
+  },
+
   // handleClick: function(event){
   // },
 
@@ -47,6 +53,7 @@ var Show = React.createClass({
         <div className="movie">
             <h2>{this.state.movie.title}</h2>
             <button onClick={this.handleEdit}>Edit Movie</button>
+            <button onClick={this.handleDelete}>Delete Movie</button>
             <h3>Released: {this.state.movie.year}</h3>
             <h3>Directed by: {this.state.movie.director}</h3>
             <h3>Cast : {this.state.movie.actors}</h3>

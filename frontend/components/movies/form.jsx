@@ -33,6 +33,7 @@ var MovieForm = React.createClass({
     } else {
       MovieUtil.createMovie(postData);
       this.setState({ title: "", year: null, director: "", actors: "", plot: "" });
+      MovieUtil.fetchAll();
       this.history.pushState(null, "/");
     }
   },

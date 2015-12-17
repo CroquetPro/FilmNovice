@@ -26,7 +26,7 @@ class Api::MoviesController < ApplicationController
   end
 
   def destroy
-    @movie = movie.find(params[:id])
+    @movie = Movie.find(params[:id])
     if @movie.destroy
       # flash.now[:errors] = "deleted " + movie.title
       render json: @movie
