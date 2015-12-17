@@ -1,5 +1,6 @@
 var React = require('react'),
     MovieUtil = require('../../utils/movie_util'),
+    MovieStore = require('../../stores/movie_store'),
     History = require('react-router').History,
     LinkedStateMixin = require('react-addons-linked-state-mixin');
 
@@ -8,7 +9,14 @@ var MovieForm = React.createClass({
   mixins: [History, LinkedStateMixin],
 
   getInitialState: function(){
-    return ({ title: "", year: null, director: "", actors: "", plot: "" })
+    if(this.props.params['movieId']){
+      var movieId = parseInt(this.props.params['movieId']);
+      var movie = MovieStore.find(movieId);
+      movie['id'] = movieId;
+      return( movie );
+    } else {
+      return ({ title: "", year: null, director: "", actors: "", plot: "" });
+    }
   },
 
   // componentDidMount: function(){
@@ -17,9 +25,16 @@ var MovieForm = React.createClass({
   handleSubmit: function(event){
     event.preventDefault();
     postData = { movie: this.state };
-    MovieUtil.createMovie(postData);
-    this.setState({ title: "", year: null, director: "", actors: "", plot: "" });
-    this.history.pushState(null, "/");
+    if(this.props.params['movieId']){
+      MovieUtil.editMovie(postData)
+      this.setState({ title: "", year: null, director: "", actors: "", plot: "" });
+      var path = "/movies/" + this.props.params['movieId'];
+      this.history.pushState(null, path);
+    } else {
+      MovieUtil.createMovie(postData);
+      this.setState({ title: "", year: null, director: "", actors: "", plot: "" });
+      this.history.pushState(null, "/");
+    }
   },
 
   render: function(){

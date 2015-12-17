@@ -1,6 +1,7 @@
 var React = require('react'),
     MovieStore = require('../../stores/movie_store'),
     MovieUtil = require('../../utils/movie_util'),
+    MovieForm = require('./form'),
     History = require('react-router').History;
 
 
@@ -30,16 +31,22 @@ var Show = React.createClass({
     this.setState({ movie: MovieStore.find(parseInt(movieId)) });
   },
 
+  handleEdit: function(event){
+    var url = "movies/" + this.props.params['movieId'] + "/edit";
+    this.history.pushState(null, url);
+  },
+
   // handleClick: function(event){
   // },
 
   render: function(){
     // <IndexItem key = {movie.id} movie={movie} />
     if(typeof this.state.movie === 'undefined'){ return(<div/>)}
-    else{
+    else {
       return(
         <div className="movie">
             <h2>{this.state.movie.title}</h2>
+            <button onClick={this.handleEdit}>Edit Movie</button>
             <h3>Released: {this.state.movie.year}</h3>
             <h3>Directed by: {this.state.movie.director}</h3>
             <h3>Cast : {this.state.movie.actors}</h3>

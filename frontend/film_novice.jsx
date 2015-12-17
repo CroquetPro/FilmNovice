@@ -24,6 +24,7 @@ document.addEventListener('DOMContentLoaded', function () {
       <IndexRoute component={MoviesIndex} />
       <Route path="movies/new" component={MovieForm} />
       <Route path="movies/:movieId" component={MovieShow} />
+      <Route path="movies/:movieId/edit" component={MovieForm} />
     </Route>);
   var content = document.querySelector('#content');
   ReactDOM.render(<Router>{routes}</Router>, content);

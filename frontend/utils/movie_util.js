@@ -18,6 +18,18 @@ var MovieUtil = {
     $.post('api/movies', data, function(movie){
       MovieActions.receiveSingle(movie);
     });
+  },
+
+  editMovie: function(data){
+    var movieId = data.movie.id;
+    $.ajax({
+      url: "api/movies/" + movieId,
+      type: "PATCH",
+      data: data,
+      success: function(movie){
+        MovieActions.receiveSingle(movie);
+      }
+    });
   }
 };
 
