@@ -47,7 +47,7 @@ var User = React.createClass({
     switch(this.state.status) {
       case "Logged Out":
         return(
-          <div className='User'>
+          <div className='user'>
             <button className='guest' onClick={this.guestLogIn}>Guest</button>
             <button className='signup' onClick={this.handleSignUp}>SignUp</button>
             <button className='login' onClick={this.handleLogIn}>Sign In</button>
@@ -56,21 +56,21 @@ var User = React.createClass({
         break;
       case "Signing Up":
         return(
-          <div className='User'>
+          <div className='user'>
             <UserForm />
           </div>
         );
         break;
       case "Logging In":
         return(
-          <div className='User'>
+          <div className='user'>
             <SessionForm />
           </div>
         );
         break;
       case "Logged In":
         return(
-          <div className='User'>
+          <div className='user'>
             <div className='currentUser'><h3>{this.state.user.username}</h3></div>
             <button className='logout' onClick={this.handleLogOut}>LogOut</button>
           </div>

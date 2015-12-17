@@ -22,19 +22,19 @@ var SessionForm = React.createClass({
 
     return(
       <div className="form">
-        <h2>Sign Up</h2>
         <form onSubmit={this.handleSubmit} >
           <label>Username:
             <input
               type="text"
               valueLink={this.linkState('username')} />
           </label>
-          <br></br>
           <label>Password:
             <input
               type="password"
               valueLink={this.linkState('password')} />
           </label>
+          <br></br>
+          <br></br>
           <input type="submit" value="Sign Up" />
         </form>
       </div>

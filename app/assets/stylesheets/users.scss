@@ -1,6 +1,10 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-input {
-  color: black;
+.user {
+  color: white;
+  text-align: right;
+  position: relative;
+  top: -55px;
+  right: 3px;
 }
