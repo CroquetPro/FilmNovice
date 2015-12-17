@@ -13,6 +13,12 @@ var MovieUtil = {
       MovieActions.receiveSingle(movie);
     });
   },
+
+  createMovie: function(data){
+    $.post('api/movies', data, function(movie){
+      MovieActions.receiveSingle(movie);
+    });
+  }
 };
 
 module.exports = MovieUtil;

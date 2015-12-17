@@ -5,12 +5,12 @@
 
 movies = [
   { title: 'Fight Club', release_date: Date.new(1999, 10, 15), year: 1999,
-    director: 'Quentin Tarantino',
+    director: 'David Fincher',
     actors: 'Edward Norton, Brad Pitt, Helena Bonham Carter, Meat Loaf',
     plot: "An insomniac office worker, looking for a way to change his life, crosses paths with a devil-may-care soap maker, forming an underground fight club that evolves into something much, much more..."
   },
   { title: 'Pulp Fiction', release_date: Date.new(1994, 10, 14), year: 1994,
-    director: 'David Fincher',
+    director: 'Quentin Tarantino',
     actors: 'John Travolta, Samuel L. Jackson, Uma Thurman, Bruce Willis',
     plot: "The lives of two mob hit men, a boxer, a gangster's wife, and a pair of diner bandits intertwine in four tales of violence and redemption."
   }

@@ -4,20 +4,38 @@ var Store = require('flux/utils').Store,
 
 var UserStore = new Store(AppDispatcher);
 
+var user = null;
+var status = "Logged Out";
+
 UserStore.currentUser = function(){
-  return this.user;
+  return user;
 };
+
+UserStore.currentStatus = function(){
+  return status;
+}
 
 var removeUser = function(){
-  this.user = null;
+  user = null;
+  status = "Logged Out";
 };
 
-var addUser = function(user){
-  this.user = user;
+var addUser = function(newUser){
+  if(typeof user === 'undefined'){
+    user = null;
+    status = "Logged Out";
+  } else {
+    user = newUser;
+    status = "Logged In";
+  }
 };
 
 UserStore.__onDispatch = function(payload){
   switch(payload.actionType) {
+    case UserConstants.RECEIVED_USER:
+      addUser(payload.user);
+      UserStore.__emitChange();
+      break;
     case UserConstants.SESSION_DESTROYED:
       removeUser();
       UserStore.__emitChange();
@@ -26,7 +44,15 @@ UserStore.__onDispatch = function(payload){
       addUser(payload.user);
       UserStore.__emitChange();
       break;
+    case UserConstants.SIGNING_UP:
+      status = "Signing Up";
+      UserStore.__emitChange();
+      break;
+    case UserConstants.LOGGING_IN:
+      status = "Logging In";
+      UserStore.__emitChange();
+      break;
   };
-};  
+};
 
 module.exports = UserStore;

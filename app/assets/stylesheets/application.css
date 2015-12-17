@@ -21,6 +21,11 @@ span, article, footer, time, small {
   color: white;
 }
 
+input {
+  color: black;
+}
+
+
 body {
   background: black;
 }

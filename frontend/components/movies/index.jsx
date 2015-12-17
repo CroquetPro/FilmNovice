@@ -30,6 +30,10 @@ var Index = React.createClass({
     this.history.pushState(null, url);
   },
 
+  getForm: function(event){
+    this.history.pushState(null, "movies/new");
+  },
+
   render: function(){
     var movies = this.state.movies.map(function(movie){
       // <IndexItem key = {movie.id} movie={movie} />
@@ -40,6 +44,7 @@ var Index = React.createClass({
         <ul className="index" onClick={this.handleClick}>
           {movies}
         </ul>
+        <button onClick={this.getForm}>New Movie</button>
       </div>
     )
   }

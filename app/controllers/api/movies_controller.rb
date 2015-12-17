@@ -12,7 +12,6 @@ class Api::MoviesController < ApplicationController
     @movie = Movie.new(movie_params)
     if @movie.save
       render json: @movie
-    else
       # flash.now[:errors] = @movie.errors.full_messages, status: 422
     end
   end
@@ -37,6 +36,6 @@ class Api::MoviesController < ApplicationController
   end
 
   def movie_params
-    params.require(:movie).permit(:title, :release_date, :plot)
+    params.require(:movie).permit(:title, :year, :director, :actors, :plot)
   end
 end

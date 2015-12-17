@@ -28,8 +28,8 @@ var Show = React.createClass({
     this.setState({ movie: MovieStore.find(parseInt(newProps.params.movieId)) });
   },
 
-  handleClick: function(event){
-  },
+  // handleClick: function(event){
+  // },
 
   render: function(){
     // <IndexItem key = {movie.id} movie={movie} />
@@ -37,11 +37,11 @@ var Show = React.createClass({
     else{
       return(
         <div className="movie">
-          <div>
-            <h1>{this.state.movie.title}</h1>
-            <h2>Release: {this.state.movie.release_date}</h2>
+            <h2>{this.state.movie.title}</h2>
+            <h3>Released: {this.state.movie.year}</h3>
+            <h3>Directed by: {this.state.movie.director}</h3>
+            <h3>Cast : {this.state.movie.actors}</h3>
             <p>Plot: {this.state.movie.plot}</p>
-          </div>
         </div>
       )
     }
