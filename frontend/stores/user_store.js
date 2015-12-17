@@ -21,12 +21,12 @@ var removeUser = function(){
 };
 
 var addUser = function(newUser){
-  if(typeof user === 'undefined'){
-    user = null;
-    status = "Logged Out";
-  } else {
+  if(newUser){
     user = newUser;
     status = "Logged In";
+  } else {
+    user = null;
+    status = "Logged Out";
   }
 };
 

@@ -14,6 +14,7 @@ var Show = React.createClass({
 
   componentDidMount: function(){
     this.token = MovieStore.addListener(this._onChange);
+    MovieUtil.fetchSingle(parseInt(this.props.params['movieId']));
   },
 
   componentWillReceiveProps: function(newProps){
@@ -25,7 +26,8 @@ var Show = React.createClass({
   },
 
   _onChange: function(){
-    this.setState({ movie: MovieStore.find(parseInt(newProps.params.movieId)) });
+    var movieId = this.props.params['movieId'];
+    this.setState({ movie: MovieStore.find(parseInt(movieId)) });
   },
 
   // handleClick: function(event){
