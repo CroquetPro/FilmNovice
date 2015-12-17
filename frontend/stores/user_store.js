@@ -13,7 +13,7 @@ UserStore.currentUser = function(){
 
 UserStore.currentStatus = function(){
   return status;
-}
+};
 
 var removeUser = function(){
   user = null;

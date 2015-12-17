@@ -1,7 +1,3 @@
-# directors= [
-#   { name: 'David Fincher' },
-#   { name: 'Quentin Tarantino' }
-# ]
 
 movies = [
   { title: 'Fight Club', release_date: Date.new(1999, 10, 15), year: 1999,
@@ -31,6 +27,16 @@ movies = [
   }
 ]
 
+movies.each { |movie| Movie.create(movie) }
+
+guest = { username: "Guest", password: "password"}
+User.create(guest)
+
+# directors= [
+#   { name: 'David Fincher' },
+#   { name: 'Quentin Tarantino' }
+# ]
+#
 # actors = [
 #   { name: 'Edward Norton'},
 #   { name: 'Brad Pitt'},
@@ -54,4 +60,3 @@ movies = [
 # ]
 #
 #
-movies.each { |movie| Movie.create(movie) }

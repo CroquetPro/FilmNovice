@@ -17,6 +17,13 @@ var MovieActions = {
     });
   },
 
+  reportCreation: function(movie){
+    AppDispatcher.dispatch({
+      actionType: MovieConstants.MOVIE_CREATED,
+      movie: movie
+    });
+  },
+
   reportDestruction: function(movie){
     AppDispatcher.dispatch({
       actionType: MovieConstants.MOVIE_DESTROYED,

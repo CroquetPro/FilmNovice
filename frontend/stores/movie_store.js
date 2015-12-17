@@ -30,8 +30,13 @@ MovieStore.__onDispatch = function (payload) {
       break;
     case MovieConstants.MOVIE_RECEIVED:
         resetMovies([payload.movie]);
+        //show page?
         MovieStore.__emitChange();
       break;
+    case MovieConstants.MOVIE_CREATED:
+      resetMovies([payload.movie]);
+      //show page?
+      MovieStore.__emitChange();
   }
 }
 

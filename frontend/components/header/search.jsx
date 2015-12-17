@@ -1,9 +1,11 @@
 var React = require('react'),
-    MovieUtil = require('../utils/api_util'),
+    MovieUtil = require('../../utils/movie_util'),
     History = require('react-router').History,
     LinkedStateMixin = require('react-addons-linked-state-mixin');
 
 var Search = React.createClass({
+  mixins: [History, LinkedStateMixin],
+  
   getInitialState: function(){
     return({ searchText: "" });
   },

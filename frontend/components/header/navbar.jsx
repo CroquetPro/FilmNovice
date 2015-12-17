@@ -1,6 +1,7 @@
 var React = require('react'),
     UserStore = require('../../stores/user_store'),
-    User = require('./user');
+    User = require('./user'),
+    Search = require('./search');
 
 var NavBar = React.createClass({
   render: function(){
@@ -13,6 +14,7 @@ var NavBar = React.createClass({
         {this.props.children}
         <h1>Film Novice</h1>
         <User />
+        <Search />
 
       </div>
     );

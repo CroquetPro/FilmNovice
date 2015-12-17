@@ -16,7 +16,7 @@ var MovieUtil = {
 
   createMovie: function(data){
     $.post('api/movies', data, function(movie){
-      MovieActions.receiveSingle(movie);
+      MovieActions.reportCreation(movie);
     });
   },
 

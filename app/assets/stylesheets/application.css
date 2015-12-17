@@ -34,15 +34,21 @@ h1 {
    text-align: center;
    color: white;
    background: #707070;
- }
+}
 
- .NavBar {
-   background: #707070;
-   position: relative;
-   height: 75px;
- }
+.NavBar {
+ background: #707070;
+ position: relative;
+ height: 75px;
+}
 
- .flash {
-   color: red;
-   text-align: left;
- }
+.flash {
+ color: red;
+ text-align: left;
+}
+
+.search{
+  position: absolute;
+  top: 50px;
+  left: 3px;
+}
