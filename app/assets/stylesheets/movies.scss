@@ -4,7 +4,7 @@
 .movies{
   width: 900px;
 }
-.index li:nth-child(1){
+.index li:hover{
   height:400px;
 }
 .index li {
@@ -12,7 +12,8 @@
   float: left;
   background: gray;
   height: 200px;
-  width: 100%;
+  transition: height 2s;
+  width: 900px;
   margin: 0 auto;
   outline: 5px solid white;
 }
@@ -25,13 +26,26 @@
   margin: 10px auto;
 }
 
-.movie {
+.index_item {
   width: 900px;
-  height: 400px;
+  height: inherit;
   display: block;
   float: left;
   background: gray;
   margin: 0 auto;
   margin-left: 50px;
   outline: 5px solid white;
+}
+
+.index_item img {
+  height: 180px;
+  transition: height 2s;
+  width: auto;
+  float: right;
+  margin-right: 60px;
+  margin-top: -50px;
+}
+
+.index_item:hover img{
+  height: 360px;
 }

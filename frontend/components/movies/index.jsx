@@ -28,6 +28,11 @@ var Index = React.createClass({
       this.setState({ movies: MovieStore.all() });
   },
 
+  handleClick: function(event){
+    var url = "movies/" + event.target.getAttribute('key');
+    this.history.pushState(null, url);
+  },
+
   getForm: function(event){
     if(UserStore.currentStatus() === 'Logged In'){
       this.history.pushState(null, "movies/new");

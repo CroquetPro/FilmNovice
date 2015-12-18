@@ -20,10 +20,11 @@ var IndexItem = React.createClass({
 
   render: function(){
     return(
-      <div  className="movie"
+      <div  className="index_item"
             data-id={this.props.movie.id}
             onClick={this.handleClick}>
         <h3>{this.props.movie.title}</h3>
+        <img src={this.props.movie.image_url} className="img-responsive" />
         <h4>Released: {this.props.movie.year}</h4>
         <h4>Directed by: {this.props.movie.director}</h4>
         <h4>Cast: {this.props.movie.actors}</h4>
