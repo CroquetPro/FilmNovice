@@ -29,6 +29,12 @@ movies = [
     actors: "Tim Robbins, Morgan Freeman, Bob Gunton",
     image_url: "http://i.telegraph.co.uk/multimedia/archive/02772/shawshank1_2772806b.jpg",
     plot: "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency."
+  },
+  { title: "The Godfather", year: 1972,
+    director: "Francis Ford Coppola",
+    actors: "Marlon Brando, Al Pacino, James Caan",
+    image_url: "http://cdn.crushable.com/files/2011/03/thegodfather.jpg",
+    plot: "The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son."
   }
 ]
 

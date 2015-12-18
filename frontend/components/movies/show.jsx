@@ -71,10 +71,11 @@ var Show = React.createClass({
             <h2>{this.state.movie.title}</h2>
             <button onClick={this.handleEdit}>Edit Movie</button>
             <button onClick={this.handleDelete}>Delete Movie</button>
+            <img src={this.state.movie.image_url} className="img-responsive" />
             <h3>Released: {this.state.movie.year}</h3>
             <h3>Directed by: {this.state.movie.director}</h3>
-            <h3>Cast : {this.state.movie.actors}</h3>
-            <p>Plot: {this.state.movie.plot}</p>
+            <h3>Cast : <h4>{this.state.movie.actors}</h4></h3>
+            <h3>Plot: </h3><p>{this.state.movie.plot}</p>
           </div>
         </div>
       )

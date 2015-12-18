@@ -15,7 +15,8 @@ var MovieForm = React.createClass({
       movie['id'] = movieId;
       return( movie );
     } else {
-      return ({ title: "", year: null, director: "", actors: "", plot: "" });
+      return ({ title: "", year: null, director: "",
+                actors: "", image_url: "", plot: "" });
     }
   },
 
@@ -23,7 +24,8 @@ var MovieForm = React.createClass({
     MovieUtil.fetchSingle(parseInt(this.props.params['movieId']));
   },
   handleBack: function(event){
-    this.setState({ title: "", year: null, director: "", actors: "", plot: "" });
+    this.setState({ title: "", year: null, director: "",
+                    actors: "", image_url: "", plot: "" });
     this.history.pushState(null, "/");
   },
 
@@ -32,12 +34,14 @@ var MovieForm = React.createClass({
     postData = { movie: this.state };
     if(this.props.params['movieId']){
       MovieUtil.editMovie(postData)
-      this.setState({ title: "", year: null, director: "", actors: "", plot: "" });
+      this.setState({ title: "", year: null, director: "",
+                      actors: "", image_url: "", plot: "" });
       var path = "/movies/" + this.props.params['movieId'];
       this.history.pushState(null, path);
     } else {
       MovieUtil.createMovie(postData);
-      this.setState({ title: "", year: null, director: "", actors: "", plot: "" });
+      this.setState({ title: "", year: null, director: "",
+                      actors: "", image_url: "", plot: "" });
       MovieUtil.fetchAll();
       this.history.pushState(null, "/");
     }
@@ -74,11 +78,17 @@ var MovieForm = React.createClass({
               valueLink={this.linkState('actors')} />
           </label>
           <br></br>
-            <label>Plot Synopsis:
-              <input
-                type="textarea"
-                valueLink={this.linkState('plot')} />
-            </label>
+          <label>Image URL:
+            <input
+              type="text"
+              valueLink={this.linkState('image_url')} />
+          </label>
+          <br></br>
+          <label>Plot Synopsis:
+            <input
+              type="textarea"
+              valueLink={this.linkState('plot')} />
+          </label>
           <br></br>
           <input type="submit" value={buttonText} />
         </form>
