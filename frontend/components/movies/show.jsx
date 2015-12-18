@@ -65,15 +65,17 @@ var Show = React.createClass({
     if(typeof this.state.movie === 'undefined'){ return(<div/>)}
     else {
       return(
-        <div className="movie">
-          <button onClick={this.handleBack}>Movies</button>
-          <h2>{this.state.movie.title}</h2>
-          <button onClick={this.handleEdit}>Edit Movie</button>
-          <button onClick={this.handleDelete}>Delete Movie</button>
-          <h3>Released: {this.state.movie.year}</h3>
-          <h3>Directed by: {this.state.movie.director}</h3>
-          <h3>Cast : {this.state.movie.actors}</h3>
-          <p>Plot: {this.state.movie.plot}</p>
+        <div className='show'>
+          <div className="movie">
+            <button onClick={this.handleBack}>Movies</button>
+            <h2>{this.state.movie.title}</h2>
+            <button onClick={this.handleEdit}>Edit Movie</button>
+            <button onClick={this.handleDelete}>Delete Movie</button>
+            <h3>Released: {this.state.movie.year}</h3>
+            <h3>Directed by: {this.state.movie.director}</h3>
+            <h3>Cast : {this.state.movie.actors}</h3>
+            <p>Plot: {this.state.movie.plot}</p>
+          </div>
         </div>
       )
     }

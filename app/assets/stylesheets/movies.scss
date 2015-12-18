@@ -1,7 +1,37 @@
 // Place all the styles related to the movies controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.movies{
+  width: 900px;
+}
+.index li:nth-child(1){
+  height:400px;
+}
+.index li {
+  display: block;
+  float: left;
+  background: gray;
+  height: 200px;
+  width: 100%;
+  margin: 0 auto;
+  outline: 5px solid white;
+}
+.index li:hover{
+  cursor: pointer;
+}
+.movies button {
+  display: block;
+  float: right;
+  margin: 10px auto;
+}
 
-li {
-  width: 300px;
+.movie {
+  width: 900px;
+  height: 400px;
+  display: block;
+  float: left;
+  background: gray;
+  margin: 0 auto;
+  margin-left: 50px;
+  outline: 5px solid white;
 }

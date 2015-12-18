@@ -28,8 +28,8 @@ var Flash = React.createClass({
       error: FlashStore.currentError(),
       notification: FlashStore.currentNotification()
     });
-    if(typeof this.state.error !==null || typeof this.state.notification !==null){
-      setTimeout(FlashActions.clearFlash, 4000);
+    if(this.state.error !== null || this.state.notification !== null){
+      setTimeout(FlashActions.clearFlash, 5000);
     }
   },
 

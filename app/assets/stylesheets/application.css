@@ -24,7 +24,13 @@ input {
   color: black;
 }
 
+button:hover {
+  cursor: pointer;
+}
 
+form button:hover {
+  cursor: pointer;
+}
 body {
   background: black;
   color: white;
