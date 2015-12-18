@@ -3,6 +3,7 @@ var React = require('react'),
     UserStore = require('../../stores/user_store'),
     UserActions = require('../../actions/user_actions'),
     MovieUtil = require('../../utils/movie_util'),
+    IndexItem = require('./index_item'),
     History = require('react-router').History;
 
 
@@ -27,11 +28,6 @@ var Index = React.createClass({
       this.setState({ movies: MovieStore.all() });
   },
 
-  handleClick: function(event){
-    var url = "movies/" + event.target.getAttribute('data-id');
-    this.history.pushState(null, url);
-  },
-
   getForm: function(event){
     if(UserStore.currentStatus() === 'Logged In'){
       this.history.pushState(null, "movies/new");
@@ -42,12 +38,12 @@ var Index = React.createClass({
 
   render: function(){
     var movies = this.state.movies.map(function(movie){
-      // <IndexItem key = {movie.id} movie={movie} />
-      return <li key={movie.id} data-id={movie.id}>{movie.title}</li>
+      return <li key={movie.id}><IndexItem movie={movie} /></li>
+      // return <li key={movie.id} data-id={movie.id}>{movie.title}</li>
     });
     return(
       <div className="movies">
-        <ul className="index" onClick={this.handleClick}>
+        <ul className="index">
           {movies}
         </ul>
         <button onClick={this.getForm}>New Movie</button>
