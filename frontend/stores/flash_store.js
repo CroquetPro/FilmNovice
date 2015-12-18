@@ -18,7 +18,6 @@ var removeError = function(newError){
 
 FlashStore.currentError = function(){
   var thisError = error;
-  removeError();
   return thisError;
 };
 
@@ -32,12 +31,16 @@ var removeNotification = function(newNotification){
 
 FlashStore.currentNotification = function(){
   var thisNotification = notification;
-  removeNotification();
   return thisNotification;
 };
 
 FlashStore.__onDispatch = function(payload){
   switch(payload.actionType) {
+    case "CLEAR_FLASH":
+      removeNotification();
+      removeError();
+      FlashStore.__emitChange();
+      break;
     case UserConstants.SIGN_UP_FAIL:
       addError(payload.error.responseText);
       FlashStore.__emitChange();

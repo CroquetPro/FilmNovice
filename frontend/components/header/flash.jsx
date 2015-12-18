@@ -1,5 +1,6 @@
 var React = require('react'),
     FlashStore = require('../../stores/flash_store'),
+    FlashActions = require('../../actions/flash_actions'),
     UserStore = require('../../stores/user_store'),
     MovieStore = require('../../stores/movie_store');
 
@@ -27,6 +28,9 @@ var Flash = React.createClass({
       error: FlashStore.currentError(),
       notification: FlashStore.currentNotification()
     });
+    if(typeof this.state.error !==null || typeof this.state.notification !==null){
+      setTimeout(FlashActions.clearFlash, 4000);
+    }
   },
 
   render: function(){

@@ -29,6 +29,7 @@ MovieStore.__onDispatch = function (payload) {
       MovieStore.__emitChange();
       break;
     case MovieConstants.MOVIE_RECEIVED:
+
         resetMovies([payload.movie]);
         //show page?
         MovieStore.__emitChange();
@@ -40,7 +41,7 @@ MovieStore.__onDispatch = function (payload) {
     case MovieConstants.MOVIE_UPDATED:
       resetMovies([payload.movie]);
       //show page?
-      MovieStore.__emitChange();  
+      MovieStore.__emitChange();
   }
 }
 
