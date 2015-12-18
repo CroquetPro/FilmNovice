@@ -12,6 +12,8 @@ class Api::MoviesController < ApplicationController
     @movie = Movie.new(movie_params)
     if @movie.save
       render json: @movie
+    else
+      render json: @movie.errors.full_messages.join(" and "), status: 406
       # flash.now[:errors] = @movie.errors.full_messages, status: 422
     end
   end
@@ -21,6 +23,7 @@ class Api::MoviesController < ApplicationController
     if @movie.update(movie_params)
       render json: @movie
     else
+      render json: @movie.errors.full_messages.join(" and "), status: 418
       # flash.now[:errors] = @movie.errors.full_messages, status: 422
     end
   end
@@ -31,6 +34,7 @@ class Api::MoviesController < ApplicationController
       # flash.now[:errors] = "deleted " + movie.title
       render json: @movie
     else
+      render json: @movie.errors.full_messages.join(" and "), status: 420
       # flash.now[:errors] = movie.errors.full_messages
     end
   end

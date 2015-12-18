@@ -4,7 +4,7 @@ var Dispatcher = require('../dispatcher/dispatcher'),
 var UserActions = {
   fetchCurrentUser: function(user){
     Dispatcher.dispatch({
-      actionType: UserConstants.RECEIVED_USER,
+      actionType: UserConstants.FOUND_USER,
       user: user
     });
   },
@@ -29,11 +29,31 @@ var UserActions = {
     });
   },
 
+  failedSignUp: function(error){
+    Dispatcher.dispatch({
+      actionType: UserConstants.SIGN_UP_FAIL,
+      error: error
+    });
+  },
+
+  logInRequired: function(){
+    Dispatcher.dispatch({
+      actionType: UserConstants.LOGIN_REQUIRED,
+    });
+  },
+
   loggingIn: function(){
     Dispatcher.dispatch({
       actionType: UserConstants.LOGGING_IN,
     });
   },
+
+  failedLogIn: function(error){
+    Dispatcher.dispatch({
+      actionType: UserConstants.LOG_IN_FAIL,
+      error: error
+    });
+  }
 };
 
 module.exports = UserActions;

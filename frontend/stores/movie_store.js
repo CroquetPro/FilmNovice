@@ -37,6 +37,10 @@ MovieStore.__onDispatch = function (payload) {
       resetMovies([payload.movie]);
       //show page?
       MovieStore.__emitChange();
+    case MovieConstants.MOVIE_UPDATED:
+      resetMovies([payload.movie]);
+      //show page?
+      MovieStore.__emitChange();  
   }
 }
 

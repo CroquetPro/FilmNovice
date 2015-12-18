@@ -12,8 +12,12 @@ var UserUtil = {
   },
 
   signUp: function(data){
-    $.post('/users', data, function(user){
-      UserActions.newSession(user);
+    $.ajax({
+      url: '/users',
+      type: 'POST',
+      data: data,
+      success: function(user){ UserActions.newSession(user); },
+      error:  function(error){ UserActions.failedSignUp(error); }
     });
   },
 
@@ -22,8 +26,12 @@ var UserUtil = {
   },
 
   logIn: function(data){
-    $.post('/session', data, function(user){
-      UserActions.newSession(user);
+    $.ajax({
+      url: '/session',
+      type: 'POST',
+      data: data,
+      success: function(user){ UserActions.newSession(user); },
+      error:  function(error){ UserActions.failedLogIn(error); }
     });
   },
 

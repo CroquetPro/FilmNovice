@@ -15,8 +15,12 @@ var MovieUtil = {
   },
 
   createMovie: function(data){
-    $.post('api/movies', data, function(movie){
-      MovieActions.reportCreation(movie);
+    $.ajax({
+      url: "api/movies/",
+      type: "POST",
+      data: data,
+      success: function(movie){ MovieActions.reportCreation(movie); },
+      error: function(error){ MovieActions.failedCreation(error) }
     });
   },
 
@@ -26,9 +30,8 @@ var MovieUtil = {
       url: "api/movies/" + movieId,
       type: "PATCH",
       data: data,
-      success: function(movie){
-        MovieActions.receiveSingle(movie);
-      }
+      success: function(movie){ MovieActions.reportUpdate(movie); },
+      error: function(error){ MovieActions.failedUpdate(error) }
     });
   },
 
@@ -36,9 +39,8 @@ var MovieUtil = {
     $.ajax({
       url: "api/movies/" + id,
       type: "DELETE",
-      success: function(movie){
-        MovieActions.reportDestruction(movie);
-      }
+      success: function(movie){ MovieActions.reportDestruction(movie); },
+      error: function(error){ MovieActions.failedDestruction(error) }
     });
   }
 };

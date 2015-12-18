@@ -16,6 +16,12 @@ var removeError = function(newError){
   error = null;
 };
 
+FlashStore.currentError = function(){
+  var thisError = error;
+  removeError();
+  return thisError;
+};
+
 var addNotification = function(newNotification){
   notification = newNotification;
 };
@@ -24,40 +30,60 @@ var removeNotification = function(newNotification){
   notification = null;
 };
 
+FlashStore.currentNotification = function(){
+  var thisNotification = notification;
+  removeNotification();
+  return thisNotification;
+};
+
 FlashStore.__onDispatch = function(payload){
   switch(payload.actionType) {
-    case UserConstants.NO_SUCH_USER:
-      var name = payload.user.username
-      addError("Username \'" + name + "\' is not in our database. Try Sign Up")
+    case UserConstants.SIGN_UP_FAIL:
+      addError(payload.error.responseText);
       FlashStore.__emitChange();
       break;
     case UserConstants.RECEIVED_USER:
       addNotification("Created user: " + payload.user.username);
       FlashStore.__emitChange();
       break;
-    case UserConstants.WRONG_PASSWORD:
-      var name = payload.user.username
-      addError("Incorrect password for username: \'" + name + "\'.");
+    case UserConstants.LOG_IN_FAIL:
+      addError(payload.error.responseText);
       FlashStore.__emitChange();
       break;
     case UserConstants.LOGIN_REQUIRED:
-      addError("Login required for this part of the site. Try Sign Up, Sign In or Guest.");
+      addError("Login required for this part of the site. Try Sign Up, Sign In or Guest");
       FlashStore.__emitChange();
       break;
     case UserConstants.SESSION_CREATED:
-      addNotification("logged in: " + payload.user.username);
+      addNotification("Logged in: " + payload.user.username);
       FlashStore.__emitChange();
       break;
     case UserConstants.SESSION_DESTROYED:
-      addNotification("logged out: " + payload.user.username);
+      addNotification("Logged out: " + payload.user.username);
+      FlashStore.__emitChange();
+      break;
+    case MovieConstants.CREATE_FAIL:
+      addError(payload.error.responseText);
       FlashStore.__emitChange();
       break;
     case MovieConstants.MOVIE_CREATED:
       addNotification("Created movie: " + payload.movie.title);
       FlashStore.__emitChange();
       break;
+    case MovieConstants.EDIT_FAIL:
+      addError(payload.error.responseText);
+      FlashStore.__emitChange();
+      break;
+    case MovieConstants.MOVIE_UPDATED:
+      addNotification("Updated movie: " + payload.movie.title);
+      FlashStore.__emitChange();
+      break;
+    case MovieConstants.DELETE_FAIL:
+      addError(payload.error.responseText);
+      FlashStore.__emitChange();
+      break;
     case MovieConstants.MOVIE_DESTROYED:
-      addNotification("Destroyed movie: " + payload.movie.title);
+      addNotification("Destroyed movie: " + payload.movie.title + " :'(");
       FlashStore.__emitChange();
       break;
   }

@@ -1,5 +1,7 @@
 var React = require('react'),
     MovieStore = require('../../stores/movie_store'),
+    UserStore = require('../../stores/user_store'),
+    UserActions = require('../../actions/user_actions'),
     MovieUtil = require('../../utils/movie_util'),
     History = require('react-router').History;
 
@@ -31,7 +33,11 @@ var Index = React.createClass({
   },
 
   getForm: function(event){
-    this.history.pushState(null, "movies/new");
+    if(UserStore.currentStatus() === 'Logged In'){
+      this.history.pushState(null, "movies/new");
+    } else{
+      UserActions.logInRequired();
+    }
   },
 
   render: function(){

@@ -19,8 +19,13 @@ var MovieForm = React.createClass({
     }
   },
 
-  // componentDidMount: function(){
-  // },
+  componentDidMount: function(){
+    MovieUtil.fetchSingle(parseInt(this.props.params['movieId']));
+  },
+  handleBack: function(event){
+    this.setState({ title: "", year: null, director: "", actors: "", plot: "" });
+    this.history.pushState(null, "/");
+  },
 
   handleSubmit: function(event){
     event.preventDefault();
@@ -39,8 +44,10 @@ var MovieForm = React.createClass({
   },
 
   render: function(){
+    var buttonText = this.props.params['movieId'] ? "Edit Movie" : "Create Movie";
     return(
       <div className="form">
+        <button onClick={this.handleBack}>Movies</button>
         <h2>New Movie</h2>
         <form onSubmit={this.handleSubmit} >
           <label>Title:
@@ -73,7 +80,7 @@ var MovieForm = React.createClass({
                 valueLink={this.linkState('plot')} />
             </label>
           <br></br>
-          <input type="submit" value="Create Movie" />
+          <input type="submit" value={buttonText} />
         </form>
       </div>
     )

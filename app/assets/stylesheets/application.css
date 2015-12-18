@@ -43,8 +43,15 @@ h1 {
 }
 
 .flash {
- color: red;
- text-align: left;
+  color: white;
+  position: absolute;
+  top: 10px;
+  left: 3px;
+  width: 300px;
+}
+
+.error {
+  color: red;
 }
 
 .search{

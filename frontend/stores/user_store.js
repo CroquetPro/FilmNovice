@@ -32,6 +32,10 @@ var addUser = function(newUser){
 
 UserStore.__onDispatch = function(payload){
   switch(payload.actionType) {
+    case UserConstants.FOUND_USER:
+      addUser(payload.user);
+      UserStore.__emitChange();
+      break;
     case UserConstants.RECEIVED_USER:
       addUser(payload.user);
       UserStore.__emitChange();
