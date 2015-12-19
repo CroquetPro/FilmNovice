@@ -6,7 +6,8 @@ var React = require('react'),
     NavBar = require('./components/header/navbar'),
     MoviesIndex = require('./components/movies/index'),
     MovieShow = require('./components/movies/show'),
-    MovieForm = require('./components/movies/form');
+    MovieForm = require('./components/movies/form'),
+    ReviewForm = require('./components/reviews/form');
 
 document.addEventListener('DOMContentLoaded', function () {
   var App = React.createClass({
@@ -25,6 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
       <Route path="movies/new" component={MovieForm} />
       <Route path="movies/:movieId" component={MovieShow} />
       <Route path="movies/:movieId/edit" component={MovieForm} />
+      <Route path="movies/:movieId/review" component={ReviewForm} />
     </Route>);
   var content = document.querySelector('#content');
   ReactDOM.render(<Router>{routes}</Router>, content);
