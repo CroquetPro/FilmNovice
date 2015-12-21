@@ -43,6 +43,8 @@ movies.each { |movie| Movie.create(movie) }
 guest = { username: "Guest", password: "password"}
 User.create(guest)
 
+
+
 # directors= [
 #   { name: 'David Fincher' },
 #   { name: 'Quentin Tarantino' }

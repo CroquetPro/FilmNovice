@@ -12,10 +12,10 @@ var Show = React.createClass({
   mixins: [History],
 
   getInitialState: function(){
-    var reviewId = this.props.review.id;
-    var movieId = this.props.movie.id;
-    return({  review: ReviewStore.find(parseInt(reviewId)),
-              movie: MovieStore.find(parseInt(movieId))
+    var reviewId = parseInt(this.props.review.id);
+    var movieId = parseInt(this.props.movie.id);
+    return({  review: ReviewStore.find(reviewId),
+              movie: MovieStore.find(movieId)
           });
   },
 
@@ -26,9 +26,9 @@ var Show = React.createClass({
     this.setState({ review: ReviewStore.find(reviewId) });
   },
 
-  componentWillReceiveProps: function(newProps){
-    this.setState({ review: ReviewStore.find(parseInt(newProps.review.id)) });
-  },
+  // componentWillReceiveProps: function(newProps){
+  //   this.setState({ review: ReviewStore.find(parseInt(newProps.review.id)) });
+  // },
 
   componentWillUnmount: function(){
     this.token.remove();
@@ -50,15 +50,15 @@ var Show = React.createClass({
     }
   },
   //
-  // handleDelete: function(event){
-  //   if(UserStore.currentStatus() === 'Logged In'){
-  //     var movieId = this.props.params['movieId'];
-  //     MovieUtil.deleteMovie(movieId);
-  //     this.history.pushState(null, "/");
-  //   } else{
-  //     UserActions.logInRequired();
-  //   }
-  // },
+  handleDelete: function(event){
+    if(UserStore.currentStatus() === 'Logged In'){
+      var movieId = this.props.movie.id;
+      var reviewId = this.props.review.id;
+      ReviewUtil.deleteReview(reviewId);
+    } else{
+      UserActions.logInRequired();
+    }
+  },
 
   // reviewForm: function(event){
   //   if(UserStore.currentStatus() === 'Logged In'){
@@ -78,7 +78,7 @@ var Show = React.createClass({
       return(
         <div className='review'>
             <h4>{this.props.review.title}</h4>
-            <h5>{this.props.author_name}</h5>
+            <h5>by: {this.props.review.author_name}</h5>
             <p>{this.props.review.body}</p>
             <button onClick={this.handleEdit}>Edit Review</button>
             <button onClick={this.handleDelete}>Delete Review</button>

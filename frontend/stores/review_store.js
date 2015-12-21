@@ -18,6 +18,10 @@ var resetReviews = function(reviews){
   });
 };
 
+var removeReview = function(review){
+  delete _reviews[review.id];
+};
+
 ReviewStore.find = function(id){
   return _reviews[id];
 };
@@ -37,6 +41,9 @@ ReviewStore.__onDispatch = function (payload) {
       ReviewStore.__emitChange();
     case ReviewConstants.REVIEW_UPDATED:
       resetReviews([payload.review]);
+      ReviewStore.__emitChange();
+    case ReviewConstants.REVIEW_DESTROYED:
+      removeReview([payload.review]);
       ReviewStore.__emitChange();
   }
 }

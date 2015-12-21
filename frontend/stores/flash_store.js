@@ -1,7 +1,8 @@
 var Store = require('flux/utils').Store,
     AppDispatcher = require('../dispatcher/dispatcher'),
     UserConstants = require('../constants/user_constants'),
-    MovieConstants = require('../constants/movie_constants');
+    MovieConstants = require('../constants/movie_constants'),
+    ReviewConstants = require('../constants/review_constants');
 
 var FlashStore = new Store(AppDispatcher);
 
@@ -87,6 +88,30 @@ FlashStore.__onDispatch = function(payload){
       break;
     case MovieConstants.MOVIE_DESTROYED:
       addNotification("Destroyed movie: " + payload.movie.title + " :'(");
+      FlashStore.__emitChange();
+      break;
+    case ReviewConstants.CREATE_FAIL:
+      addError(payload.error.responseText);
+      FlashStore.__emitChange();
+      break;
+    case ReviewConstants.REVIEW_CREATED:
+      addNotification("Created review: " + payload.review.title);
+      FlashStore.__emitChange();
+      break;
+    case ReviewConstants.EDIT_FAIL:
+      addError(payload.error.responseText);
+      FlashStore.__emitChange();
+      break;
+    case ReviewConstants.REVIEW_UPDATED:
+      addNotification("Updated review: " + payload.review.title);
+      FlashStore.__emitChange();
+      break;
+    case ReviewConstants.DELETE_FAIL:
+      addError(payload.error.responseText);
+      FlashStore.__emitChange();
+      break;
+    case ReviewConstants.REVIEW_DESTROYED:
+      addNotification("Destroyed review: " + payload.review.title + " :'(");
       FlashStore.__emitChange();
       break;
   }

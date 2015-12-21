@@ -41,6 +41,7 @@ var Show = React.createClass({
 
   _onChange: function(){
     var movieId = parseInt(this.props.params['movieId']);
+    ReviewUtil.fetchAll(movieId);
     this.setState({ movie: MovieStore.find(movieId),
                     reviews: ReviewStore.all() });
   },
