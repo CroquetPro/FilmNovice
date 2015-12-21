@@ -70,7 +70,7 @@ var Show = React.createClass({
 
   reviewForm: function(event){
     if(UserStore.currentStatus() === 'Logged In'){
-      var url = "movies/" + this.props.params['movieId'] + "/review";
+      var url = "movies/" + this.props.params['movieId'] + "/reviews";
       this.history.pushState(null, url);
     } else{
       UserActions.logInRequired();

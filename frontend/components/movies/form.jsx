@@ -12,7 +12,6 @@ var MovieForm = React.createClass({
     if(this.props.params['movieId']){
       var movieId = parseInt(this.props.params['movieId']);
       var movie = MovieStore.find(movieId);
-      movie['id'] = movieId;
       return( movie );
     } else {
       return ({ title: "", year: null, director: "",

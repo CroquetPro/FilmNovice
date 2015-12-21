@@ -26,7 +26,8 @@ document.addEventListener('DOMContentLoaded', function () {
       <Route path="movies/new" component={MovieForm} />
       <Route path="movies/:movieId" component={MovieShow} />
       <Route path="movies/:movieId/edit" component={MovieForm} />
-      <Route path="movies/:movieId/review" component={ReviewForm} />
+      <Route path="movies/:movieId/reviews" component={ReviewForm} />
+      <Route path="movies/:movieId/reviews/:reviewId/edit" component={ReviewForm} />
     </Route>);
   var content = document.querySelector('#content');
   ReactDOM.render(<Router>{routes}</Router>, content);

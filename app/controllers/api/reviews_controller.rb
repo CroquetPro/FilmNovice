@@ -19,12 +19,12 @@ class Api::ReviewsController < ApplicationController
   end
 
   def update
-    # @review = Review.find(params[:id])
-    # if @review.update(review_params)
-    #   render json: @review
-    # else
-    #   render json: @review.errors.full_messages.join(" and "), status: 418
-    # end
+    @review = Review.find(params[:id])
+    if @review.update(review_params)
+      render json: @review
+    else
+      render json: @review.errors.full_messages.join(" and "), status: 418
+    end
   end
 
   def destroy
