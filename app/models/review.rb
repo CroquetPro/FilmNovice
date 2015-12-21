@@ -3,4 +3,9 @@ class Review < ActiveRecord::Base
 
   belongs_to :movie
   belongs_to :user
+  has_many :votes
+
+  def total_votes
+    self.votes.sum(:value)
+  end
 end

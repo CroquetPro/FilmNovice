@@ -7,8 +7,8 @@ class User < ActiveRecord::Base
 
   after_initialize :ensure_session_token
 
-  # has_many :reviews
-  # has_many :votes
+  has_many :reviews
+  has_many :votes
 
   def password=(password)
     @password = password
@@ -27,5 +27,9 @@ class User < ActiveRecord::Base
     self.session_token = SecureRandom::urlsafe_base64
     self.save!
     self.session_token
+  end
+
+  def total_votes
+    self.votes.sum(:value)
   end
 end

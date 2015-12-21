@@ -49,7 +49,7 @@ var Show = React.createClass({
       UserActions.logInRequired();
     }
   },
-  //
+
   handleDelete: function(event){
     if(UserStore.currentStatus() === 'Logged In'){
       var movieId = this.props.movie.id;
@@ -60,6 +60,15 @@ var Show = React.createClass({
     }
   },
 
+  handleUpvote: function(event){
+    var data = {
+
+    }
+  },
+
+  handleDownvote: function(event){
+
+  },
   // reviewForm: function(event){
   //   if(UserStore.currentStatus() === 'Logged In'){
   //     var url = "movies/" + this.props.params['movieId'] + "/review";
@@ -70,21 +79,30 @@ var Show = React.createClass({
   // },
 
   render: function(){
-    // if(typeof this.state.movie === 'undefined'){ return(<div/>) }
-    // else {
-    //   var reviews = this.state.movie.reviews.map(function(review){
-    //     return <li key={review.id}><Review review={review} /></li>
-    //   });
+    //if current user is author, buttons for edit/delete, else vote up/down
+    // if (UserStore.currentUser.id === this.props.review.user_id){
+      var button1text = "Edit Review";
+      var button1action = this.handleEdit;
+      var button2text = "Delete Review";
+      var button2action = this.handleDelete;
+    // } else {
+    //   var button1text = "Upvote";
+    //     var button1action = this.handleUpvote;
+    //     var button2text = "Downvote";
+    //     var button2action = this.handleDownvote;
+    // }
       return(
         <div className='review'>
             <h4>{this.props.review.title}</h4>
+            <h5>{this.props.review.total_votes}</h5>
             <h5>by: {this.props.review.author_name}</h5>
             <p>{this.props.review.body}</p>
-            <button onClick={this.handleEdit}>Edit Review</button>
-            <button onClick={this.handleDelete}>Delete Review</button>
+            <button onClick={button1action}
+                    className={button1text}>{button1text}</button>
+            <button onClick={button2action}
+                    className={button2text}>{button2text}</button>
         </div>
       )
-    // }
   }
 })
 

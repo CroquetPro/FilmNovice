@@ -43,7 +43,7 @@ ReviewStore.__onDispatch = function (payload) {
       resetReviews([payload.review]);
       ReviewStore.__emitChange();
     case ReviewConstants.REVIEW_DESTROYED:
-      removeReview([payload.review]);
+      removeReview(payload.review);
       ReviewStore.__emitChange();
   }
 }

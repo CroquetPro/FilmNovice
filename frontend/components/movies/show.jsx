@@ -30,6 +30,8 @@ var Show = React.createClass({
   },
 
   componentWillReceiveProps: function(newProps){
+    var movieId = parseInt(this.props.params['movieId']);
+    ReviewUtil.fetchAll(movieId);
     this.setState({ movie: MovieStore.find(parseInt(newProps.params.movieId)),
                     reviews: ReviewStore.all() });
   },
@@ -41,7 +43,6 @@ var Show = React.createClass({
 
   _onChange: function(){
     var movieId = parseInt(this.props.params['movieId']);
-    ReviewUtil.fetchAll(movieId);
     this.setState({ movie: MovieStore.find(movieId),
                     reviews: ReviewStore.all() });
   },
