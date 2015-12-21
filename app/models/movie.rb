@@ -4,7 +4,7 @@ class Movie < ActiveRecord::Base
 
   # belongs_to :director
   # belongs_to :writer
-  # has_many :reviews
+  has_many :reviews
   # has_many :castings
   # has_many :actors, through: :castings
 

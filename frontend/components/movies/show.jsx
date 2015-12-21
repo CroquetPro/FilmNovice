@@ -1,9 +1,12 @@
 var React = require('react'),
     MovieStore = require('../../stores/movie_store'),
     MovieUtil = require('../../utils/movie_util'),
+    ReviewStore = require('../../stores/review_store'),
+    ReviewUtil = require('../../utils/review_util'),
     UserStore = require('../../stores/user_store'),
     UserActions = require('../../actions/user_actions'),
     MovieForm = require('./form'),
+    Review = require('../reviews/show'),
     History = require('react-router').History;
 
 
@@ -11,27 +14,35 @@ var Show = React.createClass({
   mixins: [History],
 
   getInitialState: function(){
-    var movieId = this.props.params['movieId'];
-    return({ movie: MovieStore.find(parseInt(movieId)) });
+    var movieId = parseInt(this.props.params['movieId']);
+    return({  movie: MovieStore.find(movieId),
+              reviews: ReviewStore.all() });
   },
 
   componentDidMount: function(){
-    this.token = MovieStore.addListener(this._onChange);
-    MovieUtil.fetchSingle(parseInt(this.props.params['movieId']));
-    this.setState({ movie: MovieStore.find(parseInt(this.props.params.movieId)) });
+    var movieId = parseInt(this.props.params['movieId']);
+    this.movieToken = MovieStore.addListener(this._onChange);
+    this.reviewToken = ReviewStore.addListener(this._onChange);
+    MovieUtil.fetchSingle(movieId);
+    ReviewUtil.fetchAll(movieId);
+    this.setState({ movie: MovieStore.find(movieId),
+                    reviews: ReviewStore.all() });
   },
 
   componentWillReceiveProps: function(newProps){
-    this.setState({ movie: MovieStore.find(parseInt(newProps.params.movieId)) });
+    this.setState({ movie: MovieStore.find(parseInt(newProps.params.movieId)),
+                    reviews: ReviewStore.all() });
   },
 
   componentWillUnmount: function(){
-    this.token.remove();
+    this.movieToken.remove();
+    this.reviewToken.remove();
   },
 
   _onChange: function(){
-    var movieId = this.props.params['movieId'];
-    this.setState({ movie: MovieStore.find(parseInt(movieId)) });
+    var movieId = parseInt(this.props.params['movieId']);
+    this.setState({ movie: MovieStore.find(movieId),
+                    reviews: ReviewStore.all() });
   },
 
   handleBack: function(event){
@@ -57,13 +68,22 @@ var Show = React.createClass({
     }
   },
 
-  // handleClick: function(event){
-  // },
+  reviewForm: function(event){
+    if(UserStore.currentStatus() === 'Logged In'){
+      var url = "movies/" + this.props.params['movieId'] + "/review";
+      this.history.pushState(null, url);
+    } else{
+      UserActions.logInRequired();
+    }
+  },
 
   render: function(){
-    // <IndexItem key = {movie.id} movie={movie} />
-    if(typeof this.state.movie === 'undefined'){ return(<div/>)}
+    if(typeof this.state.movie === 'undefined'){ return(<div/>) }
     else {
+      var movie = this.state.movie;
+      var reviews = this.state.reviews.map(function(review){
+        return  <li key={review.id}><Review review={review} movie={movie} /></li>
+      });
       return(
         <div className='show'>
           <div className="movie">
@@ -74,8 +94,14 @@ var Show = React.createClass({
             <img src={this.state.movie.image_url} className="img-responsive" />
             <h3>Released: {this.state.movie.year}</h3>
             <h3>Directed by: {this.state.movie.director}</h3>
-            <h3>Cast : <h4>{this.state.movie.actors}</h4></h3>
+            <h3>Cast : {this.state.movie.actors}</h3>
             <h3>Plot: </h3><p>{this.state.movie.plot}</p>
+            <span>
+              <ul>
+                {reviews}
+              </ul>
+              <button onClick={this.reviewForm}>New Review</button>
+            </span>
           </div>
         </div>
       )

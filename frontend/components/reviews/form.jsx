@@ -1,6 +1,10 @@
 var React = require('react'),
-    MovieUtil = require('../../utils/movie_util'),
     MovieStore = require('../../stores/movie_store'),
+    MovieUtil = require('../../utils/movie_util'),
+    UserStore = require('../../stores/user_store'),
+    UserActions = require('../../actions/user_actions'),
+    ReviewUtil = require('../../utils/review_util'),
+    ReviewStore = require('../../stores/review_store'),
     History = require('react-router').History,
     LinkedStateMixin = require('react-addons-linked-state-mixin');
 
@@ -9,50 +13,57 @@ var ReviewForm = React.createClass({
   mixins: [History, LinkedStateMixin],
 
   getInitialState: function(){
-    if(this.props.params['movieId']){
-      var movieId = parseInt(this.props.params['movieId']);
-      var movie = MovieStore.find(movieId);
-      movie['id'] = movieId;
-      return( movie );
-    } else {
-      return ({ title: "", year: null, director: "",
-                actors: "", image_url: "", plot: "" });
-    }
+    // if(this.props.params['movieId']){
+    //   var reviewId = parseInt(this.props.params['reviewId']);
+    //   var review = ReviewStore.find(reviewId);
+    //   review['id'] = reviewId;
+    //   return( review );
+    // } else {
+      return ({ title: "", body: "",
+                movie_id: this.props.params['movieId'],
+                author_name: UserStore.currentUser().username,
+                user_id: UserStore.currentUser().id });
+    // }
   },
 
   componentDidMount: function(){
-    MovieUtil.fetchSingle(parseInt(this.props.params['movieId']));
+    // MovieUtil.fetchSingle(parseInt(this.props.params['movieId']));
   },
+
   handleBack: function(event){
-    this.setState({ title: "", year: null, director: "",
-                    actors: "", image_url: "", plot: "" });
-    this.history.pushState(null, "/");
+    this.setState({ title: "", body: "",
+                    movie_id: this.props.params['movieId'],
+                    author_name: UserStore.currentUser().username,
+                    user_id: UserStore.currentUser().id });
+    this.history.pushState(null, "movies/" + this.props.params['movieId']);
   },
 
   handleSubmit: function(event){
     event.preventDefault();
-    postData = { movie: this.state };
-    if(this.props.params['movieId']){
-      MovieUtil.editMovie(postData)
-      this.setState({ title: "", year: null, director: "",
-                      actors: "", image_url: "", plot: "" });
-      var path = "/movies/" + this.props.params['movieId'];
-      this.history.pushState(null, path);
-    } else {
-      MovieUtil.createMovie(postData);
-      this.setState({ title: "", year: null, director: "",
-                      actors: "", image_url: "", plot: "" });
-      MovieUtil.fetchAll();
-      this.history.pushState(null, "/");
-    }
+    postData = { review: this.state };
+    // if(this.props.params['reviewId']){
+    //   ReviewUtil.editReview(postData)
+    //   this.setState({ title: "", year: null, director: "",
+    //                   actors: "", image_url: "", plot: "" });
+    //   var path = "/reviews/" + this.props.params['reviewId'];
+    //   this.history.pushState(null, path);
+    // } else {
+      ReviewUtil.createReview(postData);
+      this.setState({ title: "", body: "",
+                      movie_id: this.props.params['movieId'],                    author_name: UserStore.currentUser().username,
+                      author_name: UserStore.currentUser().username,
+                      user_id: UserStore.currentUser().id });
+      ReviewUtil.fetchAll(parseInt(this.props.params['movieId']));
+      this.history.pushState(null, "movies/" + this.props.params['movieId']);
+    // }
   },
 
   render: function(){
-    var buttonText = this.props.params['movieId'] ? "Edit Movie" : "Create Movie";
+    // var buttonText = this.props.params['reviewId'] ? "Edit Review" : "Create Review";
     return(
       <div className="form">
-        <button onClick={this.handleBack}>Movies</button>
-        <h2>New Movie</h2>
+        <button onClick={this.handleBack}>Movie</button>
+        <h2>New Review</h2>
         <form onSubmit={this.handleSubmit} >
           <label>Title:
             <input
@@ -60,37 +71,13 @@ var ReviewForm = React.createClass({
               valueLink={this.linkState('title')} />
           </label>
           <br></br>
-          <label>Year:
+          <label>Body:
             <input
               type="text"
-              valueLink={this.linkState('year')} />
+              valueLink={this.linkState('body')} />
           </label>
           <br></br>
-          <label>Director:
-            <input
-              type="text"
-              valueLink={this.linkState('director')} />
-          </label>
-          <br></br>
-          <label>Actors:
-            <input
-              type="textarea"
-              valueLink={this.linkState('actors')} />
-          </label>
-          <br></br>
-          <label>Image URL:
-            <input
-              type="text"
-              valueLink={this.linkState('image_url')} />
-          </label>
-          <br></br>
-          <label>Plot Synopsis:
-            <input
-              type="textarea"
-              valueLink={this.linkState('plot')} />
-          </label>
-          <br></br>
-          <input type="submit" value={buttonText} />
+          <input type="submit" value="Create Review" />
         </form>
       </div>
     )
