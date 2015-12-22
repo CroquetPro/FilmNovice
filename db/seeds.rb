@@ -35,29 +35,88 @@ movies = [
     actors: "Marlon Brando, Al Pacino, James Caan",
     image_url: "http://cdn.crushable.com/files/2011/03/thegodfather.jpg",
     plot: "The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son."
+  },
+  { title: "Finding Nemo", year: 2003,
+    director: "Andrew Stanton",
+    actors: "Albert Brooks, Ellen DeGeneres",
+    image_url: "http://img4.wikia.nocookie.net/__cb20130801230959/disney/images/d/d4/Finding_Nemo(7).jpg",
+    plot: "After his son is captured in the Great Barrier Reef and taken to Sydney, a timid clownfish sets out on a journey to bring him home."
+  },
+  { title: "Harry Potter and the Sorcerer's Stone", year: 2001,
+    director: "Chris Columbus",
+    actors: "Daniel Radcliffe, Emma Watson, Rupert Grint, Richard Harris, Maggie Smith",
+    image_url: "http://images.contentful.com/7h71s48744nc/2bPKBoWupiim0SiOg4Y6eA/103c011afb362cda5a10a0c7964c378c/harry-potter-and-the-sorcerers-stone.jpg",
+    plot: "Rescued from the outrageous neglect of his aunt and uncle, a young boy with a great destiny proves his worth while attending Hogwarts School of Witchcraft and Wizardry."
+  },
+  { title: "The Lord of the Rings: Return of the King", year: 2003,
+    director: "Peter Jackson",
+    actors: "Elijah Wood, Viggo Mortensen, Ian McKellen",
+    image_url: "http://www.filmhdwallpapers.com/files/movie/The-Lord-of-the-Rings-The-Return-of-the-King-HD-Wallpapers.jpg",
+    plot: "Gandalf and Aragorn lead the World of Men against Sauron's army to draw his gaze from Frodo and Sam as they approach Mount Doom with the One Ring."
+  },
+  { title: "Beauty and the Beast", year: 1991,
+    director: "Gary Trousdale",
+    actors: "Paige O'Hara, Robby Benson, Jesse Corti",
+    image_url: "http://cdn.collider.com/wp-content/uploads/beauty-and-the-beast-disney.jpg",
+    plot: "Belle, whose father is imprisoned by the Beast, offers herself instead, unaware her captor to be an enchanted prince."
+  },
+  { title: "The Wizard of Oz", year: 1939,
+    director: "Victor Fleming",
+    actors: "Judy Garland, Frank Morgan, Ray Bolger",
+    image_url: "http://www.tamswitmark.com/wp-content/uploads/2013/09/Wizard-of-Oz-RSC-and-MUNI1-541x346.jpg",
+    plot: "Dorothy Gale is swept away to a magical land in a tornado and embarks on a quest to see the Wizard who can help her return home."
+  },
+  { title: "Avatar", year: 2009,
+    director: "James Cameron",
+    actors: "Sam Worthington, Zoe Saldana, Sigourney Weaver",
+    image_url: "http://assets1.ignimgs.com/2014/11/26/avatar-1280cjpg-44d49c_1280w.jpg",
+    plot: "A paraplegic marine dispatched to the moon Pandora on a unique mission becomes torn between following his orders and protecting the world he feels is his home."
+  },
+  { title: "The Avengers", year: 2012,
+    director: "Joss Whedon",
+    actors: "Robert Downey Jr., Chris Evans, Scarlett Johansson, Chris Hemsworth, Mark Ruffalo, Jeremy Renner",
+    image_url: "http://screenrant.com/wp-content/uploads/The-Avengers-Movie-Roster-Concept-Art.jpg",
+    plot: "Earth's mightiest heroes must come together and learn to fight as a team if they are to stop the mischievous Loki and his alien army from enslaving humanity."
+  },
+  { title: "The Incredibles", year: 2004,
+    director: "Brad Bird",
+    actors: "Craig T. Nelson, Samuel L. Jackson, Holly Hunter",
+    image_url: "http://www.insidethemagic.net/wp-content/uploads/2014/03/incredibles.jpg",
+    plot: "A family of undercover superheroes, while trying to live the quiet suburban life, are forced into action to save the world."
+  },
+  { title: "Willy Wonka and the Chocolate Factory", year: 1971,
+    director: "Mel Stuart",
+    actors: "Gene Wilder, Jack Albertson, Peter Ostrum",
+    image_url: "https://www.relix.com/images/sized/images/uploads/willy-wonka--the-chocolate-factory-4fea54fa7c6ab-760x428.jpg",
+    plot: "A poor boy wins the opportunity to tour the most eccentric and wonderful candy factory of all."
   }
 ]
-
+# { title: "", year ,
+#   director: "",
+#   actors: "",
+#   image_url: "",
+#   plot: ""
+# }
 movies.each { |movie| Movie.create(movie) }
 
 guest = { username: "Guest", password: "password"}
 User.create(guest)
 
-reviews = {
-            {PF: "A conversation about hamburgers leads to violence"},
-            {FC: "I'm not supposed to talk about it"},
-            {DK: "Miserable billionaire terrorizes mentally ill man."},
-            {HP: "Noseless guy has an unhealthy pbsession with a teenage boy."},
-            {HP: "White child is told he is special, then he goes to private school."},
-            {LotR: "Man takes a vacation to destroy a family heirloom."},
-            {BatB: "Love in the time of stockholm syndrome."},
-            {WoO: "Impressionable teenage girl from Kansas tries acid for the first time."},
-            {WoO: "Hitch hikers with self-esteem issues get lost in the woods and meet a televangelist who is a fraud."},
-            {Avatar: "Pocahontas with blue people."},
-            {Avengers: "Adopted child's older brother will not let him hold the hammer."},
-            {Incredibles: "Man's midlife crisis endangers his family and an entire city."},
-            {WWatCF: "A drug crazed lunatic slowly kills children in front of their parents, one by one."}
-          }
+# reviews = [
+#             {PF: "A conversation about hamburgers leads to violence"},
+#             {FC: "I'm not supposed to talk about it"},
+#             {DK: "Miserable billionaire terrorizes mentally ill man."},
+#             {HP: "Noseless guy has an unhealthy pbsession with a teenage boy."},
+#             {HP: "White child is told he is special, then he goes to private school."},
+#             {LotR: "Man takes a vacation to destroy a family heirloom."},
+#             {BatB: "Love in the time of stockholm syndrome."},
+#             {WoO: "Impressionable teenage girl from Kansas tries acid for the first time."},
+#             {WoO: "Hitch hikers with self-esteem issues get lost in the woods and meet a televangelist who is a fraud."},
+#             {Avatar: "Pocahontas with blue people."},
+#             {Avengers: "Adopted child's older brother will not let him hold the hammer."},
+#             {Incredibles: "Man's midlife crisis endangers his family and an entire city."},
+#             {WWatCF: "A drug crazed lunatic slowly kills children in front of their parents, one by one."}
+#           ]
 
 # directors= [
 #   { name: 'David Fincher' },

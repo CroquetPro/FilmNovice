@@ -103,7 +103,7 @@ var Show = React.createClass({
       return(
         <div className='review'>
             <h4>{this.props.review.title}</h4>
-            <h5>{this.props.review.total_votes}</h5>
+            // <h5>{this.props.review.total_votes}</h5>
             <h5>by: {this.props.review.author_name}</h5>
             <div className="buttons">
               <button onClick={button1action}

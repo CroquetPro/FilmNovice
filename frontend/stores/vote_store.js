@@ -5,13 +5,13 @@ var Store = require('flux/utils').Store,
 
 var VoteStore = new Store(AppDispatcher);
 
-VoteStore.total = function () {
-  _votes.
-  var total = .reduce(function(a, b) {
-    return a + b;
-  });
-  return total;
-};
+// VoteStore.total = function () {
+//   // _votes;
+//   // var total = .reduce(function(a, b) {
+//     return a + b;
+//   });
+//   return total;
+// };
 
 var resetVotes = function(votes){
   _votes = {};
