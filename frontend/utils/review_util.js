@@ -7,16 +7,16 @@ var ReviewUtil = {
     });
   },
 
-  fetchSingle: function(id){
-    var url = '/api/movies/:movieId/reviews/' + id
-    $.get(url, function(review){
-      ReviewActions.receiveSingle(review);
-    });
-  },
+  // fetchSingle: function(id){
+  //   var url = '/api/movies/:movieId/reviews/' + id
+  //   $.get(url, function(review){
+  //     ReviewActions.receiveSingle(review);
+  //   });
+  // },
 
   createReview: function(data){
     $.ajax({
-      url: "api/movies/:movieId/reviews/",
+      url: "api/movies/" + data.review.movie_id + "/reviews/",
       type: "POST",
       data: data,
       success: function(review){ ReviewActions.reportCreation(review); },
@@ -27,7 +27,7 @@ var ReviewUtil = {
   editReview: function(data){
     var reviewId = data.review.id;
     $.ajax({
-      url: "api/movies/:movieId/reviews/" + reviewId,
+      url: "api/movies/" + data.review.movie_id + "/reviews/" + reviewId,
       type: "PATCH",
       data: data,
       success: function(review){ ReviewActions.reportUpdate(review); },
@@ -35,9 +35,9 @@ var ReviewUtil = {
     });
   },
 
-  deleteReview: function(id){
+  deleteReview: function(data){
     $.ajax({
-      url: "api/movies/:movieId/reviews/" + id,
+      url: "api/movies/" + data.movie_id + "/reviews/" + data.reviewId,
       type: "DELETE",
       success: function(review){ ReviewActions.reportDestruction(review); },
       error: function(error){ ReviewActions.failedDestruction(error) }

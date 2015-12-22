@@ -16,6 +16,13 @@ var VoteActions = {
       error: error
     });
   },
+
+  receiveReview: function(votes){
+    Dispatcher.dispatch({
+      actionType: VoteConstants.RECEIVE_REVIEW_VOTES,
+      votes: votes
+    });
+  }
 };
 
 module.exports = VoteActions;

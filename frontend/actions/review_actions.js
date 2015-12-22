@@ -10,12 +10,12 @@ var ReviewActions = {
     });
   },
 
-  receiveSingle: function(review){
-    Dispatcher.dispatch({
-      actionType: ReviewConstants.REVIEW_RECEIVED,
-      review: review
-    });
-  },
+  // receiveSingle: function(review){
+  //   Dispatcher.dispatch({
+  //     actionType: ReviewConstants.REVIEW_RECEIVED,
+  //     review: review
+  //   });
+  // },
 
   reportCreation: function(review){
     Dispatcher.dispatch({

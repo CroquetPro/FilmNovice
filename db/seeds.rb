@@ -43,7 +43,21 @@ movies.each { |movie| Movie.create(movie) }
 guest = { username: "Guest", password: "password"}
 User.create(guest)
 
-
+reviews = {
+            {PF: "A conversation about hamburgers leads to violence"},
+            {FC: "I'm not supposed to talk about it"},
+            {DK: "Miserable billionaire terrorizes mentally ill man."},
+            {HP: "Noseless guy has an unhealthy pbsession with a teenage boy."},
+            {HP: "White child is told he is special, then he goes to private school."},
+            {LotR: "Man takes a vacation to destroy a family heirloom."},
+            {BatB: "Love in the time of stockholm syndrome."},
+            {WoO: "Impressionable teenage girl from Kansas tries acid for the first time."},
+            {WoO: "Hitch hikers with self-esteem issues get lost in the woods and meet a televangelist who is a fraud."},
+            {Avatar: "Pocahontas with blue people."},
+            {Avengers: "Adopted child's older brother will not let him hold the hammer."},
+            {Incredibles: "Man's midlife crisis endangers his family and an entire city."},
+            {WWatCF: "A drug crazed lunatic slowly kills children in front of their parents, one by one."}
+          }
 
 # directors= [
 #   { name: 'David Fincher' },
