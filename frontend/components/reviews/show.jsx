@@ -1,9 +1,10 @@
 var React = require('react'),
     ReviewStore = require('../../stores/review_store'),
     ReviewUtil = require('../../utils/review_util'),
+    VoteUtil = require('../../utils/vote_util'),
     MovieStore = require('../../stores/movie_store'),
     UserStore = require('../../stores/user_store'),
-    // UserActions = require('../../actions/user_actions'),
+    UserActions = require('../../actions/user_actions'),
     ReviewForm = require('./form'),
     History = require('react-router').History;
 
@@ -20,7 +21,8 @@ var Show = React.createClass({
   },
 
   componentDidMount: function(){
-    this.token = ReviewStore.addListener(this._onChange);
+    this.reviewToken = ReviewStore.addListener(this._onChange);
+    this.userToken = UserStore.addListener(this._onChange);
     var reviewId = parseInt(this.props.review.id);
     // ReviewUtil.fetchSingle(parseInt(reviewId)); caused infinite loop!
     this.setState({ review: ReviewStore.find(reviewId) });
@@ -31,7 +33,8 @@ var Show = React.createClass({
   // },
 
   componentWillUnmount: function(){
-    this.token.remove();
+    this.reviewToken.remove();
+    this.userToken.remove();
   },
 
   _onChange: function(){
@@ -60,47 +63,55 @@ var Show = React.createClass({
     }
   },
 
-  handleUpvote: function(event){
-    var data = {
+  handleVote: function(event){
+    if(UserStore.currentStatus() === 'Logged In'){
+      var value = event.target.classList.contains("Upvote") ? 1 : -1;
+      var data = {  user_id: this.props.review.user_id,
+                    voter_id: UserStore.currentUser().id,
+                    review_id: this.props.review.id,
+                    value: value
+                  };
 
+      VoteUtil.create({ vote: data });
+    } else{
+      UserActions.logInRequired();
     }
   },
 
-  handleDownvote: function(event){
-
-  },
-  // reviewForm: function(event){
-  //   if(UserStore.currentStatus() === 'Logged In'){
-  //     var url = "movies/" + this.props.params['movieId'] + "/review";
-  //     this.history.pushState(null, url);
-  //   } else{
-  //     UserActions.logInRequired();
-  //   }
+  // handleDownvote: function(event){
+  //   var data = {  user_id: this.props.review.user_id,
+  //                 voter_id: UserStore.currentUser().id,
+  //                 reviewId: this.props.review.id,
+  //                 value: -1};
+  //               };
+  //   VoteUtil.create({ vote: data });
   // },
 
   render: function(){
-    //if current user is author, buttons for edit/delete, else vote up/down
-    // if (UserStore.currentUser.id === this.props.review.user_id){
+    var currentUser = UserStore.currentUser();
+    if (currentUser && currentUser.id === this.props.review.user_id){
       var button1text = "Edit Review";
       var button1action = this.handleEdit;
       var button2text = "Delete Review";
       var button2action = this.handleDelete;
-    // } else {
-    //   var button1text = "Upvote";
-    //     var button1action = this.handleUpvote;
-    //     var button2text = "Downvote";
-    //     var button2action = this.handleDownvote;
-    // }
+    } else {
+      var button1text = "Upvote";
+        var button1action = this.handleVote;
+        var button2text = "Downvote";
+        var button2action = this.handleVote;
+    }
       return(
         <div className='review'>
             <h4>{this.props.review.title}</h4>
             <h5>{this.props.review.total_votes}</h5>
             <h5>by: {this.props.review.author_name}</h5>
-            <p>{this.props.review.body}</p>
-            <button onClick={button1action}
+            <div className="buttons">
+              <button onClick={button1action}
                     className={button1text}>{button1text}</button>
-            <button onClick={button2action}
+              <button onClick={button2action}
                     className={button2text}>{button2text}</button>
+            </div>
+            <p>{this.props.review.body}</p>
         </div>
       )
   }

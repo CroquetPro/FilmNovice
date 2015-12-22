@@ -6,7 +6,9 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: {format: :json} do
       resources :movies, except: [:new, :edit] do
-        resources :reviews, except: [:new, :edit]
+        resources :reviews, except: [:new, :edit] do
+          resources :votes, except: [:new, :edit, :show]
+        end
       end
   end
 end

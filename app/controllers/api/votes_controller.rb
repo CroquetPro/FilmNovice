@@ -4,10 +4,10 @@ class Api::VotesController < ApplicationController
     render json: @review.votes
   end
 
-  # def show
-  #   id = params[:id]
-  #   render json: Review.find(id)
-  # end
+  def show
+    id = params[:id]
+    render json: Vote.find(id)
+  end
 
   def create
     @vote = Vote.new(vote_params)
