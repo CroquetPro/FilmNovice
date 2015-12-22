@@ -72,9 +72,8 @@ var MovieForm = React.createClass({
           </label>
           <br></br>
           <label>Actors:
-            <input
-              type="textarea"
-              valueLink={this.linkState('actors')} />
+            <textarea class="form-control" rows="2"
+                      valueLink={this.linkState('actors')}/>
           </label>
           <br></br>
           <label>Image URL:
@@ -84,9 +83,8 @@ var MovieForm = React.createClass({
           </label>
           <br></br>
           <label>Plot Synopsis:
-            <input
-              type="textarea"
-              valueLink={this.linkState('plot')} />
+            <textarea class="form-control" rows="4"
+                      valueLink={this.linkState('plot')}/>
           </label>
           <br></br>
           <input type="submit" value={buttonText} />

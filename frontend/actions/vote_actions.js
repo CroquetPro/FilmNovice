@@ -1,6 +1,6 @@
 var React = require('react'),
     Dispatcher = require('../dispatcher/dispatcher'),
-    VoteConstants = require('../constants/review_constants');
+    VoteConstants = require('../constants/vote_constants');
 
 var VoteActions = {
   reportCreation: function(vote){

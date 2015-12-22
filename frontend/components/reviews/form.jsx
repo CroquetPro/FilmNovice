@@ -72,9 +72,8 @@ var ReviewForm = React.createClass({
           </label>
           <br></br>
           <label>Body:
-            <input
-              type="textarea"
-              valueLink={this.linkState('body')} />
+            <textarea class="form-control" rows="2"
+                      valueLink={this.linkState('body')}/>
           </label>
           <br></br>
           <input type="submit" value={this.buttonText} />

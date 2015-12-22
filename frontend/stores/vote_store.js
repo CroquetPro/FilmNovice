@@ -5,42 +5,63 @@ var Store = require('flux/utils').Store,
 
 var VoteStore = new Store(AppDispatcher);
 
-// VoteStore.total = function () {
-//   // _votes;
-//   // var total = .reduce(function(a, b) {
-//     return a + b;
-//   });
-//   return total;
+VoteStore.total = function (review_id) {
+  if (_votes[review_id]){
+    var votes = _votes[review_id];
+    var total = votes.reduce( function(sum, vote) {
+          return sum + vote.value;
+        }, 0);
+    return total;
+  };
+};
+
+var clearVotes = function(){
+  _votes = {};
+};
+
+var resetReviewVotes = function(votes){
+  var review_id = votes[0].review_id
+  _votes[review_id] = [];
+  votes.forEach( function(vote){
+    _votes[review_id].push(vote);
+  })
+};
+
+// var removeVote = function(vote){
+//   _votes.splice(_votes.indexOf(vote));
 // };
 
-var resetVotes = function(votes){
-  _votes = {};
-  votes.forEach(function (vote) {
-    _votes[vote.id] = vote;
-  });
-};
-
-var removeVote = function(vote){
-  delete _votes[vote.id];
-};
-
 var addVote = function(vote) {
-  _vote[vote.id] = vote;
+  debugger;
+  var review_id = vote.review_id;
+  if(_votes[review_id]){
+    _votes[review_id].push(vote);
+  } else {
+    _votes[review_id] = [];
+    _votes[review_id].push(vote);
+  }
 };
-
-VoteStore.find = function(id){
-  return _votes[id];
-};
+//
+// VoteStore.find = function(id){
+//   if(_votes.indexOf(vote)){
+//     return _votes[_votes.indexOf(vote)]
+//   }
+// };
 
 VoteStore.__onDispatch = function (payload) {
   switch(payload.actionType) {
     case VoteConstants.RECEIVE_REVIEW_VOTES:
-      resetVotes(payload.votes);
+      resetReviewVotes(payload.votes);
       VoteStore.__emitChange();
       break;
     case VoteConstants.VOTE_CREATED:
-      addVote([payload.vote]);
+      addVote(payload.vote);
       VoteStore.__emitChange();
+      break;
+    case VoteConstants.CLEAR_VOTES:
+      clearVotes();
+      VoteStore.__emitChange();
+      break;
   }
 }
 

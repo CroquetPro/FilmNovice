@@ -2,6 +2,7 @@ VoteConstants = {
   CREATE_FAIL: "VOTE_CREATE_FAIL",
   VOTE_CREATED: "VOTE_CREATED",
   RECEIVE_REVIEW_VOTES: "RECEIVE_REVIEW_VOTES",
+  CLEAR_VOTES: "CLEAR_VOTES"
 };
 
 module.exports = VoteConstants;

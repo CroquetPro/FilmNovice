@@ -5,6 +5,7 @@ var React = require('react'),
     VoteStore = require('../../stores/vote_store'),
     MovieStore = require('../../stores/movie_store'),
     UserStore = require('../../stores/user_store'),
+    VoteStore = require('../../stores/vote_store'),
     UserActions = require('../../actions/user_actions'),
     ReviewForm = require('./form'),
     History = require('react-router').History;
@@ -15,21 +16,19 @@ var Show = React.createClass({
 
   getInitialState: function(){
     var reviewId = parseInt(this.props.review.id);
-    var movieId = parseInt(this.props.movie.id);
-    return({  review: ReviewStore.find(reviewId),
-              movie: MovieStore.find(movieId)
-          });
+    return({
+      total_votes: VoteStore.total(reviewId)
+    });
   },
 
   componentDidMount: function(){
     this.reviewToken = ReviewStore.addListener(this._onChange);
     this.userToken = UserStore.addListener(this._onChange);
+    this.voteToken = VoteStore.addListener(this._onChange);
     var reviewId = parseInt(this.props.review.id);
     var movieId = parseInt(this.props.movie.id);
     VoteUtil.fetchReviewVotes({ review_id: reviewId, movie_id: movieId });
-    this.setState({ review: ReviewStore.find(reviewId),
-                    // total_votes: VoteStore.total()
-                  });
+    this.setState({ total_votes: VoteStore.total(reviewId) });
   },
 
   // componentWillReceiveProps: function(newProps){
@@ -39,11 +38,13 @@ var Show = React.createClass({
   componentWillUnmount: function(){
     this.reviewToken.remove();
     this.userToken.remove();
+    this.voteToken.remove();
   },
 
   _onChange: function(){
+    debugger;
     var reviewId = parseInt(this.props.review.id);
-    this.setState({ review: ReviewStore.find(reviewId) });
+    this.setState({ total_votes: VoteStore.total(reviewId) });
   },
 
   handleEdit: function(event){
@@ -78,7 +79,7 @@ var Show = React.createClass({
           review_id: this.props.review.id,
           value: value
         }
-                  };
+      };
       // if user has already voted, update?
       VoteUtil.create(data);
     } else{
@@ -102,7 +103,7 @@ var Show = React.createClass({
       return(
         <div className='review'>
             <h4>{this.props.review.title}</h4>
-            // <h5>{this.props.review.total_votes}</h5>
+            <h5>{this.state.total_votes}</h5>
             <h5>by: {this.props.review.author_name}</h5>
             <div className="buttons">
               <button onClick={button1action}

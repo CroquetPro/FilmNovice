@@ -101,13 +101,13 @@ movies.each { |movie| Movie.create(movie) }
 
 users = [
   { username: "Guest", password: "password" },
-  { username: "Amazon", password: "password" },
-  { username: "Twitter", password: "password" },
-  { username: "Ben", password: "password" },
-  { username: "Cody", password: "password" },
-  { username: "The Dude", password: "password" },
-  { username: "Ghost", password: "password" },
-  { username: "Neck Beard", password: "password" },
+  # { username: "Amazon", password: "password" },
+  # { username: "Twitter", password: "password" },
+  # { username: "Ben", password: "password" },
+  # { username: "Cody", password: "password" },
+  # { username: "The Dude", password: "password" },
+  # { username: "Ghost", password: "password" },
+  # { username: "Neck Beard", password: "password" },
 ]
 
 users.each { |user| User.create(user) }
