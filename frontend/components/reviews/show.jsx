@@ -42,7 +42,6 @@ var Show = React.createClass({
   },
 
   _onChange: function(){
-    debugger;
     var reviewId = parseInt(this.props.review.id);
     this.setState({ total_votes: VoteStore.total(reviewId) });
   },
@@ -102,9 +101,9 @@ var Show = React.createClass({
     }
       return(
         <div className='review'>
-            <h4>{this.props.review.title}</h4>
-            <h5>{this.state.total_votes}</h5>
-            <h5>by: {this.props.review.author_name}</h5>
+            <h2>{this.props.review.title}</h2>
+            <h6>Vote total: {this.state.total_votes}</h6>
+            <h6>by: {this.props.review.author_name}</h6>
             <div className="buttons">
               <button onClick={button1action}
                     className={button1text}>{button1text}</button>

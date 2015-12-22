@@ -20,11 +20,13 @@ var clearVotes = function(){
 };
 
 var resetReviewVotes = function(votes){
-  var review_id = votes[0].review_id
-  _votes[review_id] = [];
-  votes.forEach( function(vote){
-    _votes[review_id].push(vote);
-  })
+  if (votes.length > 0){
+    var review_id = votes[0].review_id
+    _votes[review_id] = [];
+    votes.forEach( function(vote){
+      _votes[review_id].push(vote);
+    })
+  }
 };
 
 // var removeVote = function(vote){

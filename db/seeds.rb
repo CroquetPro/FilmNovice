@@ -172,10 +172,28 @@ reviews.each { |review| Review.create(review) }
 #           ]
 # (:value, :voter_id, :user_id, :review_id)
 votes = [
-  {
-    
-  }
+  { value: 1, voter_id: 2, user_id: 3, review_id: 1 },
+  { value: 1, voter_id: 1, user_id: 3, review_id: 1 },
+  { value: 1, voter_id: 4, user_id: 3, review_id: 1 },
+  { value: 1, voter_id: 5, user_id: 3, review_id: 1 },
+  { value: 1, voter_id: 6, user_id: 3, review_id: 1 },
+  { value: 1, voter_id: 7, user_id: 3, review_id: 1 },
+  { value: 1, voter_id: 8, user_id: 3, review_id: 1 },
+  { value: 1, voter_id: 8, user_id: 3, review_id: 2 },
+  { value: 1, voter_id: 8, user_id: 3, review_id: 3 },
+  { value: 1, voter_id: 8, user_id: 3, review_id: 4 },
+  { value: 1, voter_id: 8, user_id: 3, review_id: 5 },
+  { value: 1, voter_id: 8, user_id: 3, review_id: 6 },
+  { value: 1, voter_id: 8, user_id: 3, review_id: 7 },
+  { value: 1, voter_id: 8, user_id: 3, review_id: 8 },
+  { value: 1, voter_id: 8, user_id: 3, review_id: 9 },
+  { value: 1, voter_id: 8, user_id: 3, review_id: 10 },
+  { value: 1, voter_id: 8, user_id: 3, review_id: 11 },
+  { value: 1, voter_id: 8, user_id: 3, review_id: 12 },
+  { value: 1, voter_id: 8, user_id: 3, review_id: 13 },
 ]
+votes.each { |vote| Vote.create(vote) }
+
 # directors= [
 #   { name: 'David Fincher' },
 #   { name: 'Quentin Tarantino' }
