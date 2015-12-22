@@ -28,7 +28,7 @@ var Show = React.createClass({
     var movieId = parseInt(this.props.movie.id);
     VoteUtil.fetchReviewVotes({ review_id: reviewId, movie_id: movieId });
     this.setState({ review: ReviewStore.find(reviewId),
-                    total_votes: VoteStore.total()
+                    // total_votes: VoteStore.total()
                   });
   },
 
@@ -99,7 +99,6 @@ var Show = React.createClass({
         var button2text = "Downvote";
         var button2action = this.handleVote;
     }
-    debugger
       return(
         <div className='review'>
             <h4>{this.props.review.title}</h4>

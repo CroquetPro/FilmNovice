@@ -99,8 +99,20 @@ movies = [
 # }
 movies.each { |movie| Movie.create(movie) }
 
-guest = { username: "Guest", password: "password"}
-User.create(guest)
+users = [
+  { username: "Guest", password: "password" },
+  { username: "Amazon", password: "password" },
+  { username: "Twitter", password: "password" },
+  { username: "Ben", password: "password" },
+  { username: "Cody", password: "password" },
+  { username: "The Dude", password: "password" },
+  { username: "Ghost", password: "password" },
+  { username: "Neck Beard", password: "password" },
+]
+
+users.each { |user| User.create(user) }
+
+
 
 # reviews = [
 #             {PF: "A conversation about hamburgers leads to violence"},

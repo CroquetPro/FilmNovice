@@ -37,7 +37,7 @@ var ReviewUtil = {
 
   deleteReview: function(data){
     $.ajax({
-      url: "api/movies/" + data.movie_id + "/reviews/" + data.reviewId,
+      url: "api/movies/" + data.movie_id + "/reviews/" + data.review_id,
       type: "DELETE",
       success: function(review){ ReviewActions.reportDestruction(review); },
       error: function(error){ ReviewActions.failedDestruction(error) }
