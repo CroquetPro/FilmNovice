@@ -101,35 +101,81 @@ movies.each { |movie| Movie.create(movie) }
 
 users = [
   { username: "Guest", password: "password" },
-  # { username: "Amazon", password: "password" },
-  # { username: "Twitter", password: "password" },
-  # { username: "Ben", password: "password" },
-  # { username: "Cody", password: "password" },
-  # { username: "The Dude", password: "password" },
-  # { username: "Ghost", password: "password" },
-  # { username: "Neck Beard", password: "password" },
+  { username: "Amazon", password: "password" },
+  { username: "Twitter", password: "password" },
+  { username: "Ben", password: "password" },
+  { username: "Cody", password: "password" },
+  { username: "The Dude", password: "password" },
+  { username: "Ghost", password: "password" },
+  { username: "Neck Beard", password: "password" },
 ]
 
 users.each { |user| User.create(user) }
 
 
-
-# reviews = [
-#             {PF: "A conversation about hamburgers leads to violence"},
-#             {FC: "I'm not supposed to talk about it"},
-#             {DK: "Miserable billionaire terrorizes mentally ill man."},
-#             {HP: "Noseless guy has an unhealthy pbsession with a teenage boy."},
-#             {HP: "White child is told he is special, then he goes to private school."},
-#             {LotR: "Man takes a vacation to destroy a family heirloom."},
-#             {BatB: "Love in the time of stockholm syndrome."},
-#             {WoO: "Impressionable teenage girl from Kansas tries acid for the first time."},
-#             {WoO: "Hitch hikers with self-esteem issues get lost in the woods and meet a televangelist who is a fraud."},
-#             {Avatar: "Pocahontas with blue people."},
-#             {Avengers: "Adopted child's older brother will not let him hold the hammer."},
-#             {Incredibles: "Man's midlife crisis endangers his family and an entire city."},
-#             {WWatCF: "A drug crazed lunatic slowly kills children in front of their parents, one by one."}
+# :title, :body, :author_name, :movie_id, :user_id
+reviews = [
+  { title: "Shhh",
+    body: "I'm not supposed to talk about it",
+    author_name: "Twitter", movie_id: 1, user_id: 3 },
+  { title: "Who would have imagined.",
+    body: "A conversation about hamburgers leads to violence.",
+    author_name: "Twitter", movie_id: 2, user_id: 3 },
+  { title: "What a shame.",
+    body: "Miserable billionaire terrorizes mentally ill man.",
+    author_name: "Twitter", movie_id: 3, user_id: 3 },
+  { title: "Weird",
+    body: "Noseless guy has an unhealthy obsession with a teenage boy.",
+    author_name: "Twitter", movie_id: 8, user_id: 3 },
+  { title: "Typical",
+    body: "White child is told he is special, then he goes to private school.",
+    author_name: "Twitter", movie_id: 8, user_id: 3 },
+  { title: "Sad, really",
+    body: "Man takes a vacation to destroy a family heirloom.",
+    author_name: "Twitter", movie_id: 9, user_id: 3 },
+  { title: "Psychologically gripping",
+    body: "Love in the time of stockholm syndrome.",
+    author_name: "Twitter", movie_id: 10, user_id: 3 },
+  { title: "Kind of funny",
+    body: "Impressionable teenage girl from Kansas tries acid for the first time.",
+    author_name: "Twitter", movie_id: 11, user_id: 3 },
+  { title: "Boring",
+    body: "Hitch hikers with self-esteem issues get lost in the woods and meet a televangelist who is a fraud.",
+    author_name: "Twitter", movie_id: 11, user_id: 3 },
+  { title: "It's been done before",
+    body: "Pocahontas with blue people.",
+    author_name: "Twitter", movie_id: 12, user_id: 3 },
+  { title: "A family story",
+    body: "Adopted child's older brother will not let him hold the hammer.",
+    author_name: "Twitter", movie_id: 13, user_id: 3 },
+  { title: "At least it is animated",
+    body: "Man's midlife crisis endangers his family and an entire city.",
+    author_name: "Twitter", movie_id: 14, user_id: 3 },
+  { title: "Almost a horror movie",
+    body: "A drug crazed lunatic slowly kills children in front of their parents, one by one.",
+    author_name: "Twitter", movie_id: 15, user_id: 3 },
+]
+reviews.each { |review| Review.create(review) }
+            # {PF: "A conversation about hamburgers leads to violence"},
+            # {FC: "I'm not supposed to talk about it"},
+            # {DK: "Miserable billionaire terrorizes mentally ill man."},
+            # {HP: "Noseless guy has an unhealthy obsession with a teenage boy."},
+            # {HP: "White child is told he is special, then he goes to private school."},
+            # {LotR: "Man takes a vacation to destroy a family heirloom."},
+            # {BatB: "Love in the time of stockholm syndrome."},
+            # {WoO: "Impressionable teenage girl from Kansas tries acid for the first time."},
+            # {WoO: "Hitch hikers with self-esteem issues get lost in the woods and meet a televangelist who is a fraud."},
+            # {Avatar: "Pocahontas with blue people."},
+            # {Avengers: "Adopted child's older brother will not let him hold the hammer."},
+            # {Incredibles: "Man's midlife crisis endangers his family and an entire city."},
+            # {WWatCF: "A drug crazed lunatic slowly kills children in front of their parents, one by one."}
 #           ]
-
+# (:value, :voter_id, :user_id, :review_id)
+votes = [
+  {
+    
+  }
+]
 # directors= [
 #   { name: 'David Fincher' },
 #   { name: 'Quentin Tarantino' }

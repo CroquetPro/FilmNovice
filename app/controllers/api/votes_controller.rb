@@ -14,7 +14,7 @@ class Api::VotesController < ApplicationController
     if @vote.save
       render json: @vote
     else
-      render json: @vote.errors.full_messages.join(" and "), status: 406
+      render json: "You have already voted on this review.", status: 406
     end
   end
 
