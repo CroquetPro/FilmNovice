@@ -8,4 +8,8 @@ class Vote < ActiveRecord::Base
   belongs_to :review
   belongs_to :user
   belongs_to :voter, class_name: "User"
+
+  def find_by_params()
+
+  end
 end

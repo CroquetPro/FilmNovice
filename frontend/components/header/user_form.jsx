@@ -1,10 +1,9 @@
 var React = require('react'),
     UserUtil = require('../../utils/user_util'),
-    History = require('react-router').History,
     LinkedStateMixin = require('react-addons-linked-state-mixin');
 
 var SessionForm = React.createClass({
-  mixins: [History, LinkedStateMixin],
+  mixins: [LinkedStateMixin],
 
   getInitialState: function(){
     return ({ username: "", password: "" })
@@ -15,7 +14,6 @@ var SessionForm = React.createClass({
     postData = { user: this.state };
     UserUtil.signUp(postData);
     this.setState({ username: "", password: "" });
-    this.history.pushState(null, "/");
   },
 
   render: function(){

@@ -108,6 +108,7 @@ users = [
   { username: "The Dude", password: "password" },
   { username: "Ghost", password: "password" },
   { username: "Neck Beard", password: "password" },
+  { username: "Kyle", password: "password" },
 ]
 
 users.each { |user| User.create(user) }
@@ -154,6 +155,18 @@ reviews = [
   { title: "Almost a horror movie",
     body: "A drug crazed lunatic slowly kills children in front of their parents, one by one.",
     author_name: "Twitter", movie_id: 15, user_id: 3 },
+  { title: "Sounds like a drama",
+    body: "The story of a handicapped boy, Nemo, who's mother and siblings were brutally murdered by a serial killer. On his first day of school, he is abducted by a masked man and is held prisoner in a dentist's office. The story chronicles his father's journey to find him with the help of a mentally disabled woman and his attempts at escape. ...as portrayed by animated fish.",
+    author_name: "Kyle", movie_id: 7, user_id: 9 },
+  { title: "One Star",
+    body: "My husband loves this movie. I don't know why.",
+    author_name: "Amazon", movie_id: 4, user_id: 2 },
+  { title: "Had to turn it off after they portrayed Police as violent criminals that hurt the innocent! Not in my USA!!!!!",
+    body: "Happy late groundhogz day folkz! LOL! I love me a good movie here and there... and ever since I got fired from McDonalds for sleeping in the bathroom my FIRST and only entire shift LMAOZ! I decided that I would watch movies until I got my next job. Anywho... on to Samuel L Jackson and Dan Akroid... they have never really been good actors to begin with and this movie doesnt seem to have a plot at all. The plot and actors seem very one-dimensional and lack any sort of emotion or acting talent... I bet the script was written with people who were drunk off Sparkling Apple Cider LOLZ... (it only takes me 2 sips and im a lil tipsy myself).... and the entire jail/criminal justice thing has been overplayed ever since day 1. Comon.. give me a break folkz... in what country do people get sentenced to life or beat up in prison?? NOT in the USA :)) we are free here. Police here are scrutinized for what! they are GOOD hearted people and would never shot or hurt an innocent man :)... Anywho.. i didn't really have the stomach to watch this after it showed a man get beaten by police... something that would NEVER happen in real life! The plot in itself seems very fictional... They should have hired a better director and definitely a better cast... why didnt they cast good actors like iCarly? Jason Biggs? Or even Carrot Top!?? For good Hollywood.....stick with Jersey Shore, The Kardashians, and anything with Bob Saggot. For a good flick. stick with Britney Spears 'Crossroads' , Lindsay Lohans 'The Parent Trap' , and that one Christmas Movie that Adam Sandler burpz and fartz in LOL!",
+    author_name: "Amazon", movie_id: 5, user_id: 2 },
+  { title: "Amazing movie, no translation for a majority of the italian",
+    body: "Get a different version, very frustrating lack of translation including the scene in the restaurant where they speak italian for several minutes.",
+    author_name: "Amazon", movie_id: 6, user_id: 2 }
 ]
 reviews.each { |review| Review.create(review) }
             # {PF: "A conversation about hamburgers leads to violence"},

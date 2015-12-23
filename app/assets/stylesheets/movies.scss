@@ -2,24 +2,25 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .movies{
-  width: 900px;
+  width: 600px;
 }
 .index li:hover{
-  height:400px;
+  height: 300px;
 }
 
 .index li:hover img{
-  height: 385px;
+  width: 50%;
+  height: auto;
 }
 
 .index li {
   display: block;
   float: left;
   background: gray;
-  height: 200px;
-  transition: height 2s;
-  width: 900px;
-  padding: 0px 50px;
+  height: 250px;
+  transition: height 1s;
+  padding: 0px 100px;
+  width: 600px;
   margin: 0 auto;
   outline: 5px solid white;
 }
@@ -32,28 +33,30 @@
 }
 
 .index_item {
-  width: 890px;
-  height: inherit;
+  width: 590px;
+  height: 240px;
+  transition: height 1s;
   display: block;
   float: left;
   background: gray;
   margin: 0 auto;
-  padding-left: 5px;
-  padding-right: 5px;
+  padding: 5px;
   outline: 5px solid white;
 }
 
 .index_item:hover {
   cursor: pointer;
   color: blue;
+  height: 290px;
 }
 
 .index_item img {
-  height: 185px;
-  transition: height 2s;
-  width: auto;
+  height: auto;
+  transition: width 1s;
+  width: 40%;
   float: right;
-  margin-top: -55px;
+  vertical-align: middle;
+  margin-top: -10px;
 }
 
 .show{
@@ -79,7 +82,8 @@
 }
 
 .movie img{
-  width: 600px;
+  max-width: 600px;
+  max-height: 400px;
   float: right;
   margin-top: -85px;
 }
