@@ -6,23 +6,28 @@
 }
 .index li:hover{
   height: 300px;
+  opacity: .9;
 }
 
 .index li:hover img{
   width: 50%;
   height: auto;
+  opacity: 1;
 }
 
 .index li {
   display: block;
   float: left;
-  background: gray;
+  background-size: 100%;
+  background-image: url("http://www.clipartbest.com/cliparts/yco/g5r/ycog5rMdi.jpeg");
+  background-position-y: -225px;
+  opacity: .7;
   height: 250px;
   transition: height 1s;
   padding: 0px 100px;
   width: 600px;
   margin: 0 auto;
-  outline: 5px solid white;
+  outline: 5px solid black;
 }
 
 .movies button {
@@ -38,10 +43,12 @@
   transition: height 1s;
   display: block;
   float: left;
-  background: gray;
+  color: black;
   margin: 0 auto;
   padding: 5px;
-  outline: 5px solid white;
+}
+.index_item h1 {
+  color: white;
 }
 
 .index_item:hover {
@@ -60,35 +67,48 @@
 }
 
 .show{
-    width: 900px;
-    display: block;
-    float: left;
-    background: gray;
-    padding: 0px 50px;
-    margin: 15px auto;
-    margin-left: 40px;
-    outline: 5px solid white;
+  width: 900px;
+  opacity: .9;
+  display: block;
+  float: left;
+  background-size: 100% 102%;
+  background-image: url("http://www.clipartbest.com/cliparts/yco/g5r/ycog5rMdi.jpeg");
+  background-position-y: -7px;    margin: 15px auto;
+  margin-left: 40px;
+  outline: 5px solid black;
 }
 
 .movie {
-  width: 890px;
+  width: 693px;
   display: block;
   float: left;
-  background: gray;
+  color: black;
   padding: 5px;
-  border-left: 5px solid white;
-  border-right: 5px solid white;
+  margin: 20px 100px;
 
 }
 
 .movie img{
-  max-width: 600px;
+  max-width: 60%;
   max-height: 400px;
   float: right;
-  margin-top: -85px;
+  margin-top: -88px;
 }
+
 .movie ul {
-  border: 5px solid white;
-  padding: 5px;
   list-style: none;
+  margin-bottom: 40px;
+
+}
+
+.movie li {
+  width: 90%;
+  border: 5px solid black;
+  padding: 5px;
+  border: 5px solid black;
+  border-top: 0px;
+}
+
+.movie li:nth-child(1){
+  border-top: 5px solid black;
 }

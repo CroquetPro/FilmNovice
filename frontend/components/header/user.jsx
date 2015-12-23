@@ -71,7 +71,7 @@ var User = React.createClass({
       case "Logged In":
         return(
           <div className='user'>
-            <div className='currentUser'><h3>{this.state.user.username}</h3></div>
+            <h3>{this.state.user.username}</h3>
             <button className='logout' onClick={this.handleLogOut}>LogOut</button>
           </div>
         );
