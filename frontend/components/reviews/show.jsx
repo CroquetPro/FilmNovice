@@ -17,7 +17,7 @@ var Show = React.createClass({
   getInitialState: function(){
     var reviewId = parseInt(this.props.review.id);
     return({
-      total_votes: VoteStore.total(reviewId)
+      vote_score: VoteStore.score(reviewId)
     });
   },
 
@@ -28,7 +28,7 @@ var Show = React.createClass({
     var reviewId = parseInt(this.props.review.id);
     var movieId = parseInt(this.props.movie.id);
     VoteUtil.fetchReviewVotes({ review_id: reviewId, movie_id: movieId });
-    this.setState({ total_votes: VoteStore.total(reviewId) });
+    this.setState({ vote_score: VoteStore.score(reviewId) });
   },
 
   // componentWillReceiveProps: function(newProps){
@@ -43,7 +43,7 @@ var Show = React.createClass({
 
   _onChange: function(){
     var reviewId = parseInt(this.props.review.id);
-    this.setState({ total_votes: VoteStore.total(reviewId) });
+    this.setState({ vote_score: VoteStore.score(reviewId) });
   },
 
   handleEdit: function(event){
@@ -102,7 +102,7 @@ var Show = React.createClass({
       return(
         <div className='review'>
             <h2>{this.props.review.title}</h2>
-            <h6>Vote total: {this.state.total_votes}</h6>
+            <h6>Vote score: {this.state.vote_score}</h6>
             <h6>by: {this.props.review.author_name}</h6>
             <div className="buttons">
               <button onClick={button1action}
@@ -110,7 +110,7 @@ var Show = React.createClass({
               <button onClick={button2action}
                     className={button2text}>{button2text}</button>
             </div>
-            <p>{this.props.review.body}</p>
+            <h3>{this.props.review.body}</h3>
         </div>
       )
   }

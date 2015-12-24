@@ -35,10 +35,4 @@ body {
   background-image: url("http://wallpaperhdbase.com/wp-content/gallery/wallpaper-in-home/movie-home-theater-1280x800.jpg");
   background-attachment: fixed;
   color: white;
-  position:absolute;
-  top: 75px;
-  left:0px;
-  right:0px;
-  bottom:0px;
-  overflow-y:scroll;
 }

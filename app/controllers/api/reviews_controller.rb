@@ -1,11 +1,15 @@
 class Api::ReviewsController < ApplicationController
   def index
     @movie = Movie.find(params[:movie_id])
+    # @movie.reviews.each do |review|
+    #   review.votes.insert
+    # end
     render json: @movie.reviews
   end
 
   def show
     id = params[:id]
+
     render json: Review.find(id)
   end
 

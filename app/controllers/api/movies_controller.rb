@@ -1,6 +1,7 @@
 class Api::MoviesController < ApplicationController
   def index
-    render json: Movie.all
+    @movies = Movie.all
+    render :index
   end
 
   def show

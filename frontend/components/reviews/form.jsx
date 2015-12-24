@@ -62,21 +62,22 @@ var ReviewForm = React.createClass({
     var buttonText = this.props.params['reviewId'] ? "Edit Review" : "Create Review";
     return(
       <div className="form">
-        <button onClick={this.handleBack}>Movie</button>
+        <button onClick={this.handleBack} className="Left">Movie</button>
         <h2>New Review</h2>
         <form onSubmit={this.handleSubmit} >
-          <label>Title:
+          <label>Title:</label>
+          <br></br>
             <input
               type="text"
               valueLink={this.linkState('title')} />
-          </label>
+
           <br></br>
-          <label>Body:
-            <textarea class="form-control" rows="2"
+          <label>Body:</label>
+          <br></br>
+          <textarea class="form-control" rows="2"
                       valueLink={this.linkState('body')}/>
-          </label>
           <br></br>
-          <input type="submit" value={this.buttonText} />
+          <input type="submit" className="Right" value={this.buttonText} />
         </form>
       </div>
     )

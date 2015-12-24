@@ -1,5 +1,5 @@
 json.extract!(
-  movie, :title, :release_date, :plot
+  movie, :id, :title, :year, :director, :actors, :image_url, :plot
 )
 
 # if show_reviews

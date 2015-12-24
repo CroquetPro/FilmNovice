@@ -5,14 +5,26 @@ var Store = require('flux/utils').Store,
 
 var VoteStore = new Store(AppDispatcher);
 
-VoteStore.total = function (review_id) {
+VoteStore.total = function(review_id){
   if (_votes[review_id]){
     var votes = _votes[review_id];
-    var total = votes.reduce( function(sum, vote) {
+    var total = votes.length;
+    return total;
+  } else {
+    return 0;
+  }
+};
+
+VoteStore.score = function (review_id) {
+  if (_votes[review_id]){
+    var votes = _votes[review_id];
+    var score = votes.reduce( function(sum, vote) {
           return sum + vote.value;
         }, 0);
-    return total;
-  };
+    return score;
+  } else {
+    return 0;
+  }
 };
 
 var clearVotes = function(){
