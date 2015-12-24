@@ -54,10 +54,27 @@
   right: 11px;
 }
 
+.userForm label {
+  position: absolute;
+  right: 250px;
+  margin-top: 5px;}
+
+.userForm input {
+  position: absolute;
+  right: 80px;
+  margin-top: 8px;}
+
+.userForm button {
+  position: absolute;
+  right: 10px;
+}
+
 .user h3 {
-margin-bottom: 9px;
+  position: relative;
+  top: 5px;
+  margin-bottom: -5px;
 }
 
 .user button {
-  margin-top: 4px;
+  margin-top: 8px;
 }

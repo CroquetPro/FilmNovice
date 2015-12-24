@@ -4,6 +4,7 @@ var React = require('react'),
     Route = require('react-router').Route,
     IndexRoute = require('react-router').IndexRoute,
     NavBar = require('./components/header/navbar'),
+    Footer = require('./components/footer'),
     MoviesIndex = require('./components/movies/index'),
     MovieShow = require('./components/movies/show'),
     MovieForm = require('./components/movies/form'),
@@ -16,6 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
         <div className="app">
           <NavBar />
           {this.props.children}
+          <Footer />
         </div>
       );
     }

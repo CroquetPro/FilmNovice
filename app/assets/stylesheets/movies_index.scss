@@ -5,9 +5,9 @@
   width: 800px;
   position:absolute;
   top: 75px;
-  left:0px;
+  left:15%;
   right:0px;
-  bottom:0px;
+  bottom:37px;
   overflow-y:scroll;
 }
 
@@ -75,4 +75,41 @@
   width: 40%;
   float: right;
   vertical-align: bottom;
+}
+
+.sidebar {
+  width: 400px;
+  height: 400px;
+  background-image: url("http://www.clipartbest.com/cliparts/Rid/gEX/RidgEXb6T.png");
+  background-size: 100%;
+  display: block;
+  position: fixed;
+  right: 20px;
+  top: 55px;
+}
+
+.sidebarContents {
+  top: 152px;
+  left: 18px;
+  position: absolute;
+  width: 370px;
+  height: 205px;
+}
+
+.sidebarContents div {
+  margin-top: -20px;
+}
+
+.line2 {
+  height: 50px;
+}
+
+.line3 {
+  height: 50px;
+}
+
+.sidebar h4 {
+  padding: 10px;
+  padding-top: 20px;
+  text-align: center;
 }

@@ -10,8 +10,8 @@ var NavBar = React.createClass({
       <div className='NavBar'>
         {this.props.children}
         <h1>Film Novice</h1>
-        <User />
         <Search />
+        <User />
         <Flash />
       </div>
     );

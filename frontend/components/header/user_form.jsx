@@ -1,5 +1,6 @@
 var React = require('react'),
     UserUtil = require('../../utils/user_util'),
+    UserActions = require('../../actions/user_actions'),
     LinkedStateMixin = require('react-addons-linked-state-mixin');
 
 var SessionForm = React.createClass({
@@ -7,6 +8,11 @@ var SessionForm = React.createClass({
 
   getInitialState: function(){
     return ({ username: "", password: "" })
+  },
+
+  handleClick: function(event){
+    event.preventDefault();
+    UserActions.endSession();
   },
 
   handleSubmit: function(event){
@@ -19,21 +25,19 @@ var SessionForm = React.createClass({
   render: function(){
 
     return(
-      <div className="form">
-        <form onSubmit={this.handleSubmit} >
-          <label>Username:
-            <input
+      <div className="userForm">
+        <form >
+          <label>Username:</label>
+          <input
               type="text"
               valueLink={this.linkState('username')} />
-          </label>
-          <label>Password:
-            <input
+          <button onClick={this.handleClick}>Back</button>
+          <br></br>
+          <label>Password:</label>
+          <input
               type="password"
               valueLink={this.linkState('password')} />
-          </label>
-          <br></br>
-          <br></br>
-          <input type="submit" value="Sign Up" />
+          <button onClick={this.handleSubmit}>Submit</button>
         </form>
       </div>
     )
