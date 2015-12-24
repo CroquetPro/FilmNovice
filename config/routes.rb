@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :create]
   resource :session, only: [:new, :show, :create, :destroy]
+  resources :search, only: [:index]
 
   namespace :api, defaults: {format: :json} do
       resources :movies, except: [:new, :edit] do

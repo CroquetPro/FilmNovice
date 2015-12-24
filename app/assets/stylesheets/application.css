@@ -35,11 +35,16 @@ form button:hover {
 body {
   background-image: url("http://wallpaperhdbase.com/wp-content/gallery/wallpaper-in-home/movie-home-theater-1280x800.jpg");
   background-attachment: fixed;
-  color: white;
 }
 
 #content {
   height: 100%;
+}
+
+.search {
+  position: absolute;
+  left: 20px;
+  top: 40px;
 }
 
 .footer {
