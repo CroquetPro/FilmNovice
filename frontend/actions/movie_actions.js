@@ -24,12 +24,12 @@ var MovieActions = {
     });
   },
 
-  failedCreation: function(error){
-    Dispatcher.dispatch({
-      actionType: MovieConstants.CREATE_FAIL,
-      error: error
-    });
-  },
+  // failedCreation: function(error){
+  //   Dispatcher.dispatch({
+  //     actionType: MovieConstants.CREATE_FAIL,
+  //     error: error
+  //   });
+  // },
 
   reportUpdate: function(movie){
     Dispatcher.dispatch({
@@ -38,12 +38,12 @@ var MovieActions = {
     });
   },
 
-  failedUpdate: function(error){
-    Dispatcher.dispatch({
-      actionType: MovieConstants.EDIT_FAIL,
-      error: error
-    });
-  },
+  // failedUpdate: function(error){
+  //   Dispatcher.dispatch({
+  //     actionType: MovieConstants.EDIT_FAIL,
+  //     error: error
+  //   });
+  // },
 
   reportDestruction: function(movie){
     Dispatcher.dispatch({
@@ -52,12 +52,12 @@ var MovieActions = {
     });
   },
 
-  failedDestruction: function(error){
-    Dispatcher.dispatch({
-      actionType: MovieConstants.DELETE_FAIL,
-      error: error
-    });
-  },
+  // failedDestruction: function(error){
+  //   Dispatcher.dispatch({
+  //     actionType: MovieConstants.DELETE_FAIL,
+  //     error: error
+  //   });
+  // },
 };
 
 module.exports = MovieActions;

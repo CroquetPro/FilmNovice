@@ -48,7 +48,7 @@ var Show = React.createClass({
   },
 
   handleBack: function(event){
-    this.history.pushState(null, "/");
+    this.history.pushState(null, "/movies");
   },
 
   handleEdit: function(event){
@@ -64,7 +64,7 @@ var Show = React.createClass({
     if(UserStore.currentStatus() === 'Logged In'){
       var movieId = this.props.params['movieId'];
       MovieUtil.deleteMovie(movieId);
-      this.history.pushState(null, "/");
+      this.history.pushState(null, "/movies");
     } else{
       UserActions.logInRequired();
     }
@@ -89,15 +89,18 @@ var Show = React.createClass({
       return(
         <div className='show'>
           <div className="movie">
-            <button onClick={this.handleBack}>Movies</button>
+            <button onClick={this.handleBack}>Back to Movies</button>
             <h2>{this.state.movie.title}</h2>
             <button onClick={this.handleEdit}>Edit Movie</button>
             <button onClick={this.handleDelete}>Delete Movie</button>
             <img src={this.state.movie.image_url} className="img-responsive" />
             <h3>Released: {this.state.movie.year}</h3>
             <h3>Directed by: {this.state.movie.director}</h3>
-            <h3>Cast : {this.state.movie.actors}</h3>
+            <br></br>
+            <h3>Cast: {this.state.movie.actors}</h3>
+            <br></br>
             <h3>Plot: </h3><p>{this.state.movie.plot}</p>
+            <br></br>
             <span>
               <ul>
                 {reviews}

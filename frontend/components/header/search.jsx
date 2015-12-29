@@ -18,9 +18,14 @@ var Search = React.createClass({
   },
 
   render: function(){
+    if( this.state ) {
+      var display = "searchBar"
+    } else {
+      var display = "off"
+    }
     return(
       <div className='search'>
-        <form className='searchBar' onSubmit={this.handleSubmit}>
+        <form className={display} onSubmit={this.handleSubmit}>
           <label>Search: </label>
           <input type="text"
                 value={this.state.searchText}

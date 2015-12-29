@@ -29,12 +29,12 @@ var UserActions = {
     });
   },
 
-  failedSignUp: function(error){
-    Dispatcher.dispatch({
-      actionType: UserConstants.SIGN_UP_FAIL,
-      error: error
-    });
-  },
+  // failedSignUp: function(error){
+  //   Dispatcher.dispatch({
+  //     actionType: UserConstants.SIGN_UP_FAIL,
+  //     error: error
+  //   });
+  // },
 
   logInRequired: function(){
     Dispatcher.dispatch({
@@ -48,12 +48,12 @@ var UserActions = {
     });
   },
 
-  failedLogIn: function(error){
-    Dispatcher.dispatch({
-      actionType: UserConstants.LOG_IN_FAIL,
-      error: error
-    });
-  }
+  // failedLogIn: function(error){
+  //   Dispatcher.dispatch({
+  //     actionType: UserConstants.LOG_IN_FAIL,
+  //     error: error
+  //   });
+  // }
 };
 
 module.exports = UserActions;

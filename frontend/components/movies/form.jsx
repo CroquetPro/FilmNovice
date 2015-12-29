@@ -25,7 +25,7 @@ var MovieForm = React.createClass({
   handleBack: function(event){
     this.setState({ title: "", year: null, director: "",
                     actors: "", image_url: "", plot: "" });
-    this.history.pushState(null, "/");
+    this.history.pushState(null, "/movies");
   },
 
   handleSubmit: function(event){
@@ -42,7 +42,7 @@ var MovieForm = React.createClass({
       this.setState({ title: "", year: null, director: "",
                       actors: "", image_url: "", plot: "" });
       MovieUtil.fetchAll();
-      this.history.pushState(null, "/");
+      this.history.pushState(null, "/movies");
     }
   },
 
@@ -50,7 +50,7 @@ var MovieForm = React.createClass({
     var buttonText = this.props.params['movieId'] ? "Edit Movie" : "Create Movie";
     return(
       <div className="form">
-        <button onClick={this.handleBack}>Movies</button>
+        <button onClick={this.handleBack}>Back to Movies</button>
         <h2>New Movie</h2>
         <form onSubmit={this.handleSubmit} >
           <label>Title:
@@ -71,10 +71,9 @@ var MovieForm = React.createClass({
               valueLink={this.linkState('director')} />
           </label>
           <br></br>
-          <label>Actors:
-            <textarea class="form-control" rows="2"
+          <label className='TA2'>Actors:</label>
+          <textarea class="form-control" rows="2"
                       valueLink={this.linkState('actors')}/>
-          </label>
           <br></br>
           <label>Image URL:
             <input
@@ -82,10 +81,9 @@ var MovieForm = React.createClass({
               valueLink={this.linkState('image_url')} />
           </label>
           <br></br>
-          <label>Plot Synopsis:
-            <textarea class="form-control" rows="4"
+          <label className='TA4'>Plot Synopsis:</label>
+          <textarea class="form-control" rows="4"
                       valueLink={this.linkState('plot')}/>
-          </label>
           <br></br>
           <input type="submit" value={buttonText} />
         </form>

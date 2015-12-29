@@ -24,12 +24,12 @@ var ReviewActions = {
     });
   },
 
-  failedCreation: function(error){
-    Dispatcher.dispatch({
-      actionType: ReviewConstants.CREATE_FAIL,
-      error: error
-    });
-  },
+  // failedCreation: function(error){
+  //   Dispatcher.dispatch({
+  //     actionType: ReviewConstants.CREATE_FAIL,
+  //     error: error
+  //   });
+  // },
 
   reportUpdate: function(review){
     Dispatcher.dispatch({
@@ -38,12 +38,12 @@ var ReviewActions = {
     });
   },
 
-  failedUpdate: function(error){
-    Dispatcher.dispatch({
-      actionType: ReviewConstants.EDIT_FAIL,
-      error: error
-    });
-  },
+  // failedUpdate: function(error){
+  //   Dispatcher.dispatch({
+  //     actionType: ReviewConstants.EDIT_FAIL,
+  //     error: error
+  //   });
+  // },
 
   reportDestruction: function(review){
     Dispatcher.dispatch({
@@ -52,12 +52,12 @@ var ReviewActions = {
     });
   },
 
-  failedDestruction: function(error){
-    Dispatcher.dispatch({
-      actionType: ReviewConstants.DELETE_FAIL,
-      error: error
-    });
-  },
+  // failedDestruction: function(error){
+  //   Dispatcher.dispatch({
+  //     actionType: ReviewConstants.DELETE_FAIL,
+  //     error: error
+  //   });
+  // },
 };
 
 module.exports = ReviewActions;

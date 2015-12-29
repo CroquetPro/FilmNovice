@@ -12,12 +12,6 @@
 }
 
 .index li {
-  display: block;
-  position: relative;
-  left: -40px;
-  top: -10px;
-  right: -50px;
-  float: left;
   background-size: 100%;
   background-image: url("http://www.clipartbest.com/cliparts/yco/g5r/ycog5rMdi.jpeg");
   background-position-y: -225px;
@@ -60,7 +54,7 @@
   padding: 5px;
 }
 .index_item h1 {
-  color: white;
+  max-width: 50%;
 }
 
 .index_item:hover {

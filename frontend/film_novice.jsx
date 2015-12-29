@@ -5,6 +5,7 @@ var React = require('react'),
     IndexRoute = require('react-router').IndexRoute,
     NavBar = require('./components/header/navbar'),
     Footer = require('./components/footer'),
+    SplashPage = require('./components/splash_page'),
     MoviesIndex = require('./components/movies/index'),
     MovieShow = require('./components/movies/show'),
     MovieForm = require('./components/movies/form'),
@@ -15,21 +16,36 @@ document.addEventListener('DOMContentLoaded', function () {
     render: function(){
       return (
         <div className="app">
-          <NavBar />
+
           {this.props.children}
-          <Footer />
+
         </div>
       );
     }
   });
+    var Content = React.createClass({
+      render: function(){
+        return (
+          <div className="content">
+            <NavBar />
+            {this.props.children}
+            <Footer />
+          </div>
+        );
+      }
+  });
   var routes = (
     <Route path="/" component={App} >
-      <IndexRoute component={MoviesIndex} />
-      <Route path="movies/new" component={MovieForm} />
-      <Route path="movies/:movieId" component={MovieShow} />
-      <Route path="movies/:movieId/edit" component={MovieForm} />
-      <Route path="movies/:movieId/reviews" component={ReviewForm} />
-      <Route path="movies/:movieId/reviews/:reviewId/edit" component={ReviewForm} />
+      // <Route component={SplashPage} />
+      <IndexRoute component={SplashPage} />
+      <Route component={Content} >
+        <Route path="movies" component={MoviesIndex} />
+        <Route path="movies/new" component={MovieForm} />
+        <Route path="movies/:movieId" component={MovieShow} />
+        <Route path="movies/:movieId/edit" component={MovieForm} />
+        <Route path="movies/:movieId/reviews" component={ReviewForm} />
+        <Route path="movies/:movieId/reviews/:reviewId/edit" component={ReviewForm} />
+      </Route>
     </Route>);
   var content = document.querySelector('#content');
   ReactDOM.render(<Router>{routes}</Router>, content);

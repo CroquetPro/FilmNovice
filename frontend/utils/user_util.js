@@ -1,4 +1,5 @@
-var UserActions = require('../actions/user_actions');
+var UserActions = require('../actions/user_actions'),
+    FlashActions = require('../actions/flash_actions');
 
 var UserUtil = {
   fetchCurrentUser: function(){
@@ -17,7 +18,7 @@ var UserUtil = {
       type: 'POST',
       data: data,
       success: function(user){ UserActions.newSession(user); },
-      error:  function(error){ UserActions.failedSignUp(error); }
+      error:  function(error){ FlashActions.reportError(error); }
     });
   },
 
@@ -31,7 +32,7 @@ var UserUtil = {
       type: 'POST',
       data: data,
       success: function(user){ UserActions.newSession(user); },
-      error:  function(error){ UserActions.failedLogIn(error); }
+      error:  function(error){ FlashActions.reportError(error); }
     });
   },
 

@@ -1,4 +1,5 @@
-var VoteActions = require('../actions/vote_actions');
+var VoteActions = require('../actions/vote_actions'),
+    FlashActions = require('../actions/flash_actions');
 
 var VoteUtil = {
   create: function(data){
@@ -7,7 +8,7 @@ var VoteUtil = {
       type: "POST",
       data: data,
       success: function(vote){ VoteActions.reportCreation(vote); },
-      error: function(error){ VoteActions.failedCreation(error) }
+      error: function(error){ FlashActions.reportError(error) }
     });
   },
 

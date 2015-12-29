@@ -10,12 +10,12 @@ var VoteActions = {
     });
   },
 
-  failedCreation: function(error){
-    Dispatcher.dispatch({
-      actionType: VoteConstants.CREATE_FAIL,
-      error: error
-    });
-  },
+  // failedCreation: function(error){
+  //   Dispatcher.dispatch({
+  //     actionType: VoteConstants.CREATE_FAIL,
+  //     error: error
+  //   });
+  // },
 
   receiveReview: function(votes){
     Dispatcher.dispatch({

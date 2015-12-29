@@ -1,4 +1,6 @@
-var ReviewActions = require('../actions/review_actions');
+var ReviewActions = require('../actions/review_actions'),
+    FlashActions = require('../actions/flash_actions');
+
 
 var ReviewUtil = {
   fetchAll: function(movieId){
@@ -20,7 +22,7 @@ var ReviewUtil = {
       type: "POST",
       data: data,
       success: function(review){ ReviewActions.reportCreation(review); },
-      error: function(error){ ReviewActions.failedCreation(error) }
+      error: function(error){ FlashActions.reportError(error) }
     });
   },
 
@@ -31,7 +33,7 @@ var ReviewUtil = {
       type: "PATCH",
       data: data,
       success: function(review){ ReviewActions.reportUpdate(review); },
-      error: function(error){ ReviewActions.failedUpdate(error) }
+      error: function(error){ FlashActions.reportError(error) }
     });
   },
 
@@ -40,7 +42,7 @@ var ReviewUtil = {
       url: "api/movies/" + data.movie_id + "/reviews/" + data.review_id,
       type: "DELETE",
       success: function(review){ ReviewActions.reportDestruction(review); },
-      error: function(error){ ReviewActions.failedDestruction(error) }
+      error: function(error){ FlashActions.reportError(error) }
     });
   }
 };

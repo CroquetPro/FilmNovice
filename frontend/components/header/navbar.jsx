@@ -8,8 +8,10 @@ var NavBar = React.createClass({
   render: function(){
     return(
       <div className='NavBar'>
-        {this.props.children}
+        <img id="camera" src="http://www.clipartbest.com/cliparts/RiG/G5g/RiGG5ge6T.png" />
         <h1>Film Novice</h1>
+        <img id="slate" src="http://cliparts.co/cliparts/8TG/6Bg/8TG6Bgnec.jpg" />
+        {this.props.children}
         <Search />
         <User />
         <Flash />

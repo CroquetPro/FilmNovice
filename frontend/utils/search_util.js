@@ -1,9 +1,11 @@
-var MovieActions = require('../actions/movie_actions');
+var MovieActions = require('../actions/movie_actions'),
+    FlashActions = require('../actions/flash_actions');
 
 var SearchUtil = {
   searchFor: function(searchText){
-    $.get('/search', {search: searchText}, function(movies){
-      MovieActions.receiveAll(movies);
+    $.ajax({ url: '/search', type: 'GET', data: {search: searchText},
+          success: function(movies){ MovieActions.receiveAll(movies); },
+          error: function(error){ FlashActions.reportError(error); }
     });
   }
 };

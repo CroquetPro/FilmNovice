@@ -1,13 +1,6 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.NavBar h1 {
-   text-align: center;
-   color: black;
-   vertical-align: middle;
-   margin-top: 0px;
-   padding-top: 20px;
-}
 
 .NavBar {
   position: fixed;
@@ -24,6 +17,32 @@
  height: 75px;
 }
 
+.NavBar h1 {
+  font-size: xx-Large;
+  text-align: center;
+  font-family: "Limelight";
+  color: black;
+  vertical-align: middle;
+  margin-top: 0px;
+  padding-top: 20px;
+}
+
+.NavBar img {
+  position: absolute;
+    height: 40px;
+    width: 40px;
+}
+
+#camera {
+  left: 430px;
+    top: 18px;
+}
+
+#slate {
+  right: 435px;
+    top: 20px;
+}
+
 .NavBar:hover {
   opacity: 1;
 }
@@ -33,7 +52,8 @@
   position: absolute;
   top: 13px;
   left: 11px;
-  width: 465px;
+  max-width: 420px;
+  max-height: 35px;
 }
 
 .error {
@@ -46,35 +66,39 @@
   left: 11px;
 }
 
+.search .off {
+  display: none;
+}
+
 .user {
   color: black;
   text-align: right;
   position: relative;
-  top: -69px;
-  right: 11px;
+  float: right;
+  width: 35%;
+  top: -40px;
+  right: 20px;
 }
 
 .userForm label {
   position: absolute;
-  right: 250px;
-  margin-top: 5px;}
+  right: 235px;
+  margin-top: 7px;}
 
 .userForm input {
   position: absolute;
   right: 80px;
-  margin-top: 8px;}
+  margin-top: 6px;}
 
 .userForm button {
-  position: absolute;
-  right: 10px;
+  position: relative;
 }
 
 .user h3 {
   position: relative;
   top: 5px;
-  margin-bottom: -5px;
 }
 
 .user button {
-  margin-top: 8px;
+  margin-top: 6px;
 }

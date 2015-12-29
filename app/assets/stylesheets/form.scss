@@ -1,9 +1,16 @@
 .form {
   text-align: center;
+  background: gray;
+  opacity: .9;
+  width: 50%;
+  left: 25%;
   top: 75px;
   display: block;
   position: relative;
-  display: block;
+}
+
+.form h2 {
+  margin: 10px;
 }
 
 .form input {
@@ -12,4 +19,14 @@
 
 .form textarea {
   margin: 10px;
+}
+
+.form .TA2 {
+  top: -24px;
+  position: relative;
+}
+
+.form .TA4 {
+  top: -40px;
+  position: relative;
 }

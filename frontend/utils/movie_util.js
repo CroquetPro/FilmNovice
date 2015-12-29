@@ -1,4 +1,5 @@
-var MovieActions = require('../actions/movie_actions');
+var MovieActions = require('../actions/movie_actions'),
+    FlashActions = require('../actions/flash_actions');
 
 var MovieUtil = {
   fetchAll: function(){
@@ -20,7 +21,7 @@ var MovieUtil = {
       type: "POST",
       data: data,
       success: function(movie){ MovieActions.reportCreation(movie); },
-      error: function(error){ MovieActions.failedCreation(error) }
+      error: function(error){ FlashActions.reportError(error) }
     });
   },
 
@@ -31,7 +32,7 @@ var MovieUtil = {
       type: "PATCH",
       data: data,
       success: function(movie){ MovieActions.reportUpdate(movie); },
-      error: function(error){ MovieActions.failedUpdate(error) }
+      error: function(error){ FlashActions.reportError(error) }
     });
   },
 
@@ -40,7 +41,7 @@ var MovieUtil = {
       url: "api/movies/" + id,
       type: "DELETE",
       success: function(movie){ MovieActions.reportDestruction(movie); },
-      error: function(error){ MovieActions.failedDestruction(error) }
+      error: function(error){ FlashActions.reportError(error) }
     });
   }
 };
