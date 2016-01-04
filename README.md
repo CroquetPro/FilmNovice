@@ -4,8 +4,6 @@
 
 [link]: http://www.filmnovice.xyz
 
-## Minimum Viable Product
-
 Film Novice is a web application inspired by Rap Genius built using Ruby on
 Rails and React.js.
 Film Novice allows users to:
