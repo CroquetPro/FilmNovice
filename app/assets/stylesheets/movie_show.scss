@@ -14,25 +14,36 @@
   position:absolute;
   top: 75px;
   left: 12%;
-  right:0px;
   bottom:37px;
   overflow-y: scroll;
   overflow-x: hidden;
 }
 
 .movie {
-  width: 693px;
+  width: 680px;
   display: block;
   float: left;
   color: black;
-  padding: 5px;
-  margin: 20px 100px;
+  padding-left: 15px;
+  margin: 0px 100px;
 
 }
 
-.movie h2 {
+.movie h1 {
   max-width: 40%;
   font-size: xx-large;
+  font-weight: bolder;
+  text-shadow: 0px 0px 5px chocolate;
+}
+
+.movie h2{
+  font-size: x-large;
+  font-weight: bold;
+}
+
+.movie h3{
+  font-size: large;
+  font-weight: normal;
 }
 
 .movie button {

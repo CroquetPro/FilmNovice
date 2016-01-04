@@ -4,7 +4,6 @@ var React = require('react'),
     UserActions = require('../../actions/user_actions'),
     MovieUtil = require('../../utils/movie_util'),
     IndexItem = require('./index_item'),
-    Sidebar = require('./sidebar'),
     History = require('react-router').History;
 
 

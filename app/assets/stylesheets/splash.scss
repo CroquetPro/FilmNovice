@@ -1,0 +1,54 @@
+.splash {
+  background-image: url("http://www.niftynyc.com/wp-content/uploads/2015/06/cheap-movie-tickets.jpg");
+  background-attachment: fixed;
+  background-size: 100%;
+  height: 100vh;
+}
+
+.sidebar {
+  width: 400px;
+  height: 400px;
+  background-image: url("http://www.clipartbest.com/cliparts/Rid/gEX/RidgEXb6T.png");
+  background-size: 100%;
+  display: block;
+  margin: 10% 35%;
+  position: absolute;
+  opacity: .8;
+  // right: 20px;
+  // top: 55px;
+}
+
+.sidebar:hover{
+  opacity: 1;
+}
+
+.sidebarContents {
+  top: 152px;
+  left: 5%;
+  position: absolute;
+  width: 370px;
+  height: 205px;
+}
+
+.sidebarContents div {
+  // margin-top: -20px;
+  color: white;
+}
+
+.line2 {
+  height: 50px;
+}
+
+.line3 {
+  height: 50px;
+}
+
+.line4 {
+  height: 50px;
+}
+
+.sidebar h4 {
+  padding: 10px;
+  padding-top: 20px;
+  text-align: center;
+}

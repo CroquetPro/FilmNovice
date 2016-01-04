@@ -97,13 +97,6 @@ form button:hover {
   height: 100%;
 }
 
-.splash {
-  background-image: url("http://www.niftynyc.com/wp-content/uploads/2015/06/cheap-movie-tickets.jpg");
-  background-attachment: fixed;
-  background-size: 100%;
-  height: 100vh;
-}
-
 .footer {
   position: absolute;
   width: 100%;

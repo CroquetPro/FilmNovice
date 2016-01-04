@@ -90,16 +90,16 @@ var Show = React.createClass({
         <div className='show'>
           <div className="movie">
             <button onClick={this.handleBack}>Back to Movies</button>
-            <h2>{this.state.movie.title}</h2>
+            <h1>{this.state.movie.title}</h1>
             <button onClick={this.handleEdit}>Edit Movie</button>
             <button onClick={this.handleDelete}>Delete Movie</button>
             <img src={this.state.movie.image_url} className="img-responsive" />
-            <h3>Released: {this.state.movie.year}</h3>
-            <h3>Directed by: {this.state.movie.director}</h3>
+            <h2>Released: {this.state.movie.year}</h2>
+            <h2>Directed by: {this.state.movie.director}</h2>
             <br></br>
-            <h3>Cast: {this.state.movie.actors}</h3>
+            <h2>Cast: {this.state.movie.actors}</h2>
             <br></br>
-            <h3>Plot: </h3><p>{this.state.movie.plot}</p>
+            <h2>Plot: </h2><p>{this.state.movie.plot}</p>
             <br></br>
             <span>
               <ul>
