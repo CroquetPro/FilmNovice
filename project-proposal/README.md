@@ -1,8 +1,8 @@
 # Film Novice
 
-[Film Novice][heroku]
+[Film Novice][link]
 
-[heroku]: http://filmnovice.herokuapp.com
+[link]: http://www.filmnovice.xyz
 
 ## Minimum Viable Product
 

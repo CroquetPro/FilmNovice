@@ -1,20 +1,31 @@
 # Film Novice
 
-[Film Novice][heroku]
+[Film Novice][link]
 
-[heroku]: http://filmnovice.herokuapp.com
+[link]: http://www.filmnovice.xyz
 
-## Frontend
+## Minimum Viable Product
 
-Entry point is filmnovice.jsx
+Film Novice is a web application inspired by Rap Genius built using Ruby on
+Rails and React.js.
+Film Novice allows users to:
 
-Components are sorted into header, movies, and reviews.
+-When Visiting-
+- [ ] View Movies Index
+- [ ] View Movie Details including cast/crew/plot synopsis
+- [ ] View Movie Reviews contributed by users
+- [ ] Search for movies
+- [ ] Create an account
 
-There are several stores, each with a corresponding util and constants.
+-When Signed Up-
+- [ ] Log in / Log out
+- [ ] Create, edit, and delete own reviews
+- [ ] Upvote or Downvote other user's reviews (one vote per)
+- [ ] Add Movies to be reviewed
 
-## Backend
+## Design Docs
+* [View Wireframes][view]
+* [DB schema][schema]
 
-Models include user, movie, review and vote.
-
-Controllers include users and sessions with a separate api folder for
-movies reviews and votes.
+[view]: ./docs/views.md
+[schema]: ./docs/schema.md
