@@ -6,8 +6,8 @@ var Footer = React.createClass({
     return(
       <div className="footer">
         <span className="footerContents">
-          {links}
-          © AppAcademy 2015
+          <a href="http://croquetpro.github.io">Portfolio</a>
+          © Ben Rothman 2015
         </span>
       </div>
     );
