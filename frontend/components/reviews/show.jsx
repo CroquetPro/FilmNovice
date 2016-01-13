@@ -44,7 +44,9 @@ var Show = React.createClass({
 
   _onChange: function(){
     var reviewId = parseInt(this.props.review.id);
-    this.setState({ vote_score: VoteStore.score(reviewId) });
+    this.setState({ vote_score: VoteStore.score(reviewId),
+                    edit: ReviewStore.edit()
+                  });
   },
 
   handleEdit: function(event){

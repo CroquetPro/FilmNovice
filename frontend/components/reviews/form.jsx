@@ -35,7 +35,7 @@ var ReviewForm = React.createClass({
     //                 author_name: UserStore.currentUser().username,
     //                 user_id: UserStore.currentUser().id });
     // this.history.pushState(null, "movies/" + this.props.params['movieId']);
-    ReviewActions.formFalse();
+    ReviewActions.editFalse();
   },
 
   handleSubmit: function(event){
@@ -43,7 +43,7 @@ var ReviewForm = React.createClass({
     postData = { review: this.state };
     if(this.props.review){
       ReviewUtil.editReview(postData)
-      
+
       // this.setState({ title: "", body: "",
       //                 movie_id: this.props.movieId,
       //                 author_name: UserStore.currentUser().username,
@@ -51,18 +51,17 @@ var ReviewForm = React.createClass({
       //               });
       // this.history.pushState(null, "movies/" + this.props.review.movie_id);
       // ReviewActions.formFalse();
-
+      ReviewUtil.fetchAll(this.state.movie_id);
     } else {
       ReviewUtil.createReview(postData);
+      ReviewUtil.fetchAll(this.state.movie_id);
       this.setState({ title: "", body: "",
                       movie_id: this.props.movieId,
                       author_name: UserStore.currentUser().username,
                       user_id: UserStore.currentUser().id });
-      ReviewUtil.fetchAll(parseInt(this.props.movieId));
       // this.history.pushState(null, "movies/" + this.props.params['movieId']);
-      ReviewActions.formFalse();
     }
-
+    ReviewActions.editFalse();
   },
 
   render: function(){

@@ -16,6 +16,12 @@ var ReviewActions = {
     });
   },
 
+  editFalse: function(){
+    Dispatcher.dispatch({
+      actionType: ReviewConstants.EDIT_FALSE,
+    });
+  },
+
   reportCreation: function(review){
     Dispatcher.dispatch({
       actionType: ReviewConstants.REVIEW_CREATED,

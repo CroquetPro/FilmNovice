@@ -3,6 +3,7 @@ var Store = require('flux/utils').Store,
     ReviewConstants = require('../constants/review_constants'),
     _reviews = {};
     _form = false;
+    _edit = false;
 
 var ReviewStore = new Store(AppDispatcher);
 
@@ -29,7 +30,11 @@ ReviewStore.find = function(id){
 
 ReviewStore.form = function(){
   return _form;
-}
+};
+
+ReviewStore.edit = function(){
+  return _edit;
+};
 
 ReviewStore.__onDispatch = function (payload) {
   switch(payload.actionType) {
@@ -54,6 +59,9 @@ ReviewStore.__onDispatch = function (payload) {
       ReviewStore.__emitChange();
       break;
     case ReviewConstants.FORM_FALSE:
+      ReviewStore.__emitChange();
+      break;
+    case ReviewConstants.EDIT_FALSE:
       ReviewStore.__emitChange();
       break;
   }
