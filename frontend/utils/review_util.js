@@ -9,13 +9,6 @@ var ReviewUtil = {
     });
   },
 
-  // fetchSingle: function(id){
-  //   var url = '/api/movies/:movieId/reviews/' + id
-  //   $.get(url, function(review){
-  //     ReviewActions.receiveSingle(review);
-  //   });
-  // },
-
   createReview: function(data){
     $.ajax({
       url: "api/movies/" + data.review.movie_id + "/reviews/",

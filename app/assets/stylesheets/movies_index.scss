@@ -11,6 +11,22 @@
   overflow-y:scroll;
 }
 
+.search{
+  position: fixed;
+  top: 43px;
+  left: 1.8%;
+  width: 19%;
+  opacity: .7;
+}
+
+.search:hover{
+  opacity: .9;
+}
+
+// .search .off {
+//   display: none;
+// }
+
 .index li {
   background-size: 100%;
   background-image: url("http://www.clipartbest.com/cliparts/yco/g5r/ycog5rMdi.jpeg");
@@ -53,7 +69,7 @@
   margin: 0 auto;
   padding: 5px;
 }
-.index_item h1,h2,h3 {
+.index_item h1,.index_item h2,.index_item h3 {
   max-width: 50%;
 }
 

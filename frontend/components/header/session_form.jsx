@@ -17,9 +17,9 @@ var SessionForm = React.createClass({
     this.setState({ username: "", password: "" });
   },
 
-  handleClick: function(event){
+  handleBack: function(event){
     event.preventDefault();
-    UserActions.endSession();
+    UserActions.goBack();
   },
 
   render: function(){
@@ -31,7 +31,7 @@ var SessionForm = React.createClass({
           <input
               type="text"
               valueLink={this.linkState('username')} />
-          <button onClick={this.handleClick}>Back</button>
+            <button onClick={this.handleBack}>Back</button>
           <br></br>
           <label>Password:</label>
           <input

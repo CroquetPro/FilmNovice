@@ -7,7 +7,7 @@ var React = require('react'),
     UserStore = require('../../stores/user_store'),
     VoteStore = require('../../stores/vote_store'),
     UserActions = require('../../actions/user_actions'),
-    ReviewForm = require('./form'),
+    Form = require('./form'),
     History = require('react-router').History;
 
 
@@ -17,7 +17,8 @@ var Show = React.createClass({
   getInitialState: function(){
     var reviewId = parseInt(this.props.review.id);
     return({
-      vote_score: VoteStore.score(reviewId)
+      vote_score: VoteStore.score(reviewId),
+      edit: false
     });
   },
 
@@ -48,10 +49,11 @@ var Show = React.createClass({
 
   handleEdit: function(event){
     if(UserStore.currentStatus() === 'Logged In'){
-      var movieId = this.props.movie.id;
-      var reviewId = this.props.review.id;
-      var url = "movies/" + movieId + "/reviews/" + reviewId +"/edit";
-      this.history.pushState(null, url);
+      // var movieId = this.props.movie.id;
+      // var reviewId = this.props.review.id;
+      // var url = "movies/" + movieId + "/reviews/" + reviewId +"/edit";
+      // this.history.pushState(null, url);
+      this.setState({ edit: true })
     } else{
       UserActions.logInRequired();
     }
@@ -99,6 +101,12 @@ var Show = React.createClass({
         var button2text = "Downvote";
         var button2action = this.handleVote;
     }
+
+    if (this.state.edit) {
+      return(
+        <Form review={this.props.review} />
+      )
+    } else {
       return(
         <div className='review'>
             <h2>{this.props.review.title}</h2>
@@ -113,6 +121,7 @@ var Show = React.createClass({
             <h3>{this.props.review.body}</h3>
         </div>
       )
+    }
   }
 })
 

@@ -10,12 +10,11 @@ var ReviewActions = {
     });
   },
 
-  // receiveSingle: function(review){
-  //   Dispatcher.dispatch({
-  //     actionType: ReviewConstants.REVIEW_RECEIVED,
-  //     review: review
-  //   });
-  // },
+  formFalse: function(){
+    Dispatcher.dispatch({
+      actionType: ReviewConstants.FORM_FALSE,
+    });
+  },
 
   reportCreation: function(review){
     Dispatcher.dispatch({

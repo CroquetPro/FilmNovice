@@ -108,14 +108,22 @@ form button:hover {
   color: black;
 }
 
+.footer:hover {
+  opacity: .9;
+}
+
 .footerContents {
   display: inline-block;
   float: right;
   text-align: right;
-  padding-top: 15px;
-  padding-right: 55px;
+  padding: 15px 50px;
+  width: 37.5%;
 }
 
 .footer a{
-  padding-right: 120px;
+  padding-right: 20%;
+}
+
+.footerContents span{
+  width: 10%;
 }

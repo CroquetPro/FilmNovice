@@ -4,6 +4,7 @@ var React = require('react'),
     UserActions = require('../../actions/user_actions'),
     MovieUtil = require('../../utils/movie_util'),
     IndexItem = require('./index_item'),
+    Search = require('./search'),
     History = require('react-router').History;
 
 
@@ -48,6 +49,7 @@ var Index = React.createClass({
     });
     return(
       <div className="movies">
+        <Search />
         <ul className="index">
           {movies}
         </ul>

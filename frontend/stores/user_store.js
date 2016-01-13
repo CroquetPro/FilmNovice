@@ -56,6 +56,10 @@ UserStore.__onDispatch = function(payload){
       status = "Logging In";
       UserStore.__emitChange();
       break;
+    case UserConstants.GO_BACK:
+      status = "Logged Out";
+      UserStore.__emitChange();
+      break;
   };
 };
 

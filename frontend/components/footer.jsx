@@ -6,7 +6,7 @@ var Footer = React.createClass({
     return(
       <div className="footer">
         <span className="footerContents">
-          <a href="http://croquetpro.github.io">Portfolio</a>
+          <a href="http://croquetpro.github.io">View My Portfolio</a>
           © Ben Rothman 2015
         </span>
       </div>

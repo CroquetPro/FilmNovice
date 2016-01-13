@@ -2,6 +2,7 @@ var Store = require('flux/utils').Store,
     AppDispatcher = require('../dispatcher/dispatcher'),
     ReviewConstants = require('../constants/review_constants'),
     _reviews = {};
+    _form = false;
 
 var ReviewStore = new Store(AppDispatcher);
 
@@ -26,6 +27,10 @@ ReviewStore.find = function(id){
   return _reviews[id];
 };
 
+ReviewStore.form = function(){
+  return _form;
+}
+
 ReviewStore.__onDispatch = function (payload) {
   switch(payload.actionType) {
     case ReviewConstants.REVIEWS_RECEIVED:
@@ -39,12 +44,18 @@ ReviewStore.__onDispatch = function (payload) {
     case ReviewConstants.REVIEW_CREATED:
       resetReviews([payload.review]);
       ReviewStore.__emitChange();
+      break;
     case ReviewConstants.REVIEW_UPDATED:
       resetReviews([payload.review]);
       ReviewStore.__emitChange();
+      break;
     case ReviewConstants.REVIEW_DESTROYED:
       removeReview(payload.review);
       ReviewStore.__emitChange();
+      break;
+    case ReviewConstants.FORM_FALSE:
+      ReviewStore.__emitChange();
+      break;
   }
 }
 

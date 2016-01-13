@@ -23,8 +23,14 @@
   font-family: "Limelight";
   color: black;
   vertical-align: middle;
-  margin-top: 0px;
-  padding-top: 20px;
+  display: block;
+  width: 20%;
+  margin: 0 auto;
+  padding: 20px 0px;
+}
+
+.NavBar h1:hover {
+  cursor: pointer;
 }
 
 .NavBar img {
@@ -60,24 +66,14 @@
   color: red;
 }
 
-.search{
-  position: absolute;
-  top: 43px;
-  left: 11px;
-}
-
-.search .off {
-  display: none;
-}
-
 .user {
   color: black;
   text-align: right;
   position: relative;
   float: right;
   width: 35%;
-  top: -40px;
-  right: 20px;
+  top: -83%;
+  right: 1.8%;
 }
 
 .userForm label {

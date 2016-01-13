@@ -5,7 +5,7 @@ var React = require('react'),
     ReviewUtil = require('../../utils/review_util'),
     UserStore = require('../../stores/user_store'),
     UserActions = require('../../actions/user_actions'),
-    MovieForm = require('./form'),
+    Form = require('../reviews/form'),
     Review = require('../reviews/show'),
     History = require('react-router').History;
 
@@ -16,7 +16,9 @@ var Show = React.createClass({
   getInitialState: function(){
     var movieId = parseInt(this.props.params['movieId']);
     return({  movie: MovieStore.find(movieId),
-              reviews: ReviewStore.all() });
+              reviews: ReviewStore.all(),
+              form: false
+          });
   },
 
   componentDidMount: function(){
@@ -44,7 +46,9 @@ var Show = React.createClass({
   _onChange: function(){
     var movieId = parseInt(this.props.params['movieId']);
     this.setState({ movie: MovieStore.find(movieId),
-                    reviews: ReviewStore.all() });
+                    reviews: ReviewStore.all(),
+                    form: ReviewStore.form()
+                  });
   },
 
   handleBack: function(event){
@@ -72,8 +76,9 @@ var Show = React.createClass({
 
   reviewForm: function(event){
     if(UserStore.currentStatus() === 'Logged In'){
-      var url = "movies/" + this.props.params['movieId'] + "/reviews";
-      this.history.pushState(null, url);
+      // var url = "movies/" + this.props.params['movieId'] + "/reviews";
+      // this.history.pushState(null, url);
+      this.setState({ form: true });
     } else{
       UserActions.logInRequired();
     }
@@ -86,6 +91,8 @@ var Show = React.createClass({
       var reviews = this.state.reviews.map(function(review){
         return  <li key={review.id}><Review review={review} movie={movie} /></li>
       });
+      var form = (this.state.form) ? <li><Form movieId={parseInt(this.props.params['movieId'])} /></li> : null;
+      var button = (this.state.form) ? null : <button onClick={this.reviewForm}>New Review</button>;
       return(
         <div className='show'>
           <div className="movie">
@@ -104,8 +111,9 @@ var Show = React.createClass({
             <span>
               <ul>
                 {reviews}
+                {form}
               </ul>
-              <button onClick={this.reviewForm}>New Review</button>
+              {button}
             </span>
           </div>
         </div>

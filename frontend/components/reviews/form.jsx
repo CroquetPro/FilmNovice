@@ -5,6 +5,7 @@ var React = require('react'),
     UserActions = require('../../actions/user_actions'),
     ReviewUtil = require('../../utils/review_util'),
     ReviewStore = require('../../stores/review_store'),
+    ReviewActions = require('../../actions/review_actions'),
     History = require('react-router').History,
     LinkedStateMixin = require('react-addons-linked-state-mixin');
 
@@ -13,13 +14,12 @@ var ReviewForm = React.createClass({
   mixins: [History, LinkedStateMixin],
 
   getInitialState: function(){
-    if(this.props.params['reviewId']){
-      var reviewId = parseInt(this.props.params['reviewId']);
-      var review = ReviewStore.find(reviewId);
-      return( review );
+    if(this.props && this.props.review){
+      return( this.props.review );
     } else {
       return ({ title: "", body: "",
-                movie_id: this.props.params['movieId'],
+                // movie_id: this.props.params['movieId'],
+                movie_id: this.props.review.movie_id,
                 author_name: UserStore.currentUser().username,
                 user_id: UserStore.currentUser().id });
     }
@@ -30,40 +30,48 @@ var ReviewForm = React.createClass({
   },
 
   handleBack: function(event){
-    this.setState({ title: "", body: "",
-                    movie_id: this.props.params['movieId'],
-                    author_name: UserStore.currentUser().username,
-                    user_id: UserStore.currentUser().id });
-    this.history.pushState(null, "movies/" + this.props.params['movieId']);
+    // this.setState({ title: "", body: "",
+    //                 movie_id: this.props.review.movie_id,
+    //                 author_name: UserStore.currentUser().username,
+    //                 user_id: UserStore.currentUser().id });
+    // this.history.pushState(null, "movies/" + this.props.params['movieId']);
+    ReviewActions.formFalse();
   },
 
   handleSubmit: function(event){
     event.preventDefault();
     postData = { review: this.state };
-    if(this.props.params['reviewId']){
+    if(this.props.review){
       ReviewUtil.editReview(postData)
-      this.setState({ title: "", body: "",
-                      movie_id: this.props.params['movieId'],
-                      author_name: UserStore.currentUser().username,
-                      user_id: UserStore.currentUser().id });
-      this.history.pushState(null, "movies/" + this.props.params['movieId']);
+      
+      // this.setState({ title: "", body: "",
+      //                 movie_id: this.props.movieId,
+      //                 author_name: UserStore.currentUser().username,
+      //                 user_id: UserStore.currentUser().id
+      //               });
+      // this.history.pushState(null, "movies/" + this.props.review.movie_id);
+      // ReviewActions.formFalse();
+
     } else {
       ReviewUtil.createReview(postData);
       this.setState({ title: "", body: "",
-                      movie_id: this.props.params['movieId'],                    author_name: UserStore.currentUser().username,
+                      movie_id: this.props.movieId,
                       author_name: UserStore.currentUser().username,
                       user_id: UserStore.currentUser().id });
-      ReviewUtil.fetchAll(parseInt(this.props.params['movieId']));
-      this.history.pushState(null, "movies/" + this.props.params['movieId']);
+      ReviewUtil.fetchAll(parseInt(this.props.movieId));
+      // this.history.pushState(null, "movies/" + this.props.params['movieId']);
+      ReviewActions.formFalse();
     }
+
   },
 
   render: function(){
-    var buttonText = this.props.params['reviewId'] ? "Edit Review" : "Create Review";
+    // var buttonText = "Edit Review";
+    var buttonText = this.props.review ? "Edit Review" : "Create Review";
     return(
-      <div className="form">
+      <div className="reviewForm">
         <button onClick={this.handleBack} className="Left">Back to Movie</button>
-        <h2>New Review</h2>
+        <h2>{buttonText}</h2>
         <form onSubmit={this.handleSubmit} >
           <label>Title:</label>
           <input
@@ -75,7 +83,7 @@ var ReviewForm = React.createClass({
           <textarea class="form-control" rows="2"
                       valueLink={this.linkState('body')}/>
           <br></br>
-          <input type="submit" className="Right" value={this.buttonText} />
+          <input type="submit" className="Right" value={buttonText} />
         </form>
       </div>
     )

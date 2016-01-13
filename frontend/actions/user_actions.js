@@ -29,13 +29,6 @@ var UserActions = {
     });
   },
 
-  // failedSignUp: function(error){
-  //   Dispatcher.dispatch({
-  //     actionType: UserConstants.SIGN_UP_FAIL,
-  //     error: error
-  //   });
-  // },
-
   logInRequired: function(){
     Dispatcher.dispatch({
       actionType: UserConstants.LOGIN_REQUIRED,
@@ -48,12 +41,11 @@ var UserActions = {
     });
   },
 
-  // failedLogIn: function(error){
-  //   Dispatcher.dispatch({
-  //     actionType: UserConstants.LOG_IN_FAIL,
-  //     error: error
-  //   });
-  // }
+  goBack: function(){
+    Dispatcher.dispatch({
+      actionType: UserConstants.GO_BACK,
+    });
+  }
 };
 
 module.exports = UserActions;

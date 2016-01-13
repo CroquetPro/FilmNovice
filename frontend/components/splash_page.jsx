@@ -13,6 +13,7 @@ var SplashPage = React.createClass({
     var links = [];
     return(
       <div className="splash" onClick={this.handleClick}>
+        <h1>Film Novice</h1>
         <Slate />
       </div>
     );
