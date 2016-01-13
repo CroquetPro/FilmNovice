@@ -19,7 +19,7 @@ var ReviewForm = React.createClass({
     } else {
       return ({ title: "", body: "",
                 // movie_id: this.props.params['movieId'],
-                movie_id: this.props.review.movie_id,
+                movie_id: this.props.movieId,
                 author_name: UserStore.currentUser().username,
                 user_id: UserStore.currentUser().id });
     }

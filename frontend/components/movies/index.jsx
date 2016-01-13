@@ -50,10 +50,10 @@ var Index = React.createClass({
     return(
       <div className="movies">
         <Search />
+        <button onClick={this.getForm}>New Movie</button>
         <ul className="index">
           {movies}
         </ul>
-        <button onClick={this.getForm}>New Movie</button>
       </div>
     )
   }

@@ -53,10 +53,10 @@
 
 
 .movies button {
-  display: block;
-  float: left;
+  position: fixed;
+  top: 75px;
+  left: 5%;
   margin: 10px auto;
-  margin-left: 40px;
 }
 
 .index_item {

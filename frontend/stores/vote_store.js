@@ -46,7 +46,6 @@ var resetReviewVotes = function(votes){
 // };
 
 var addVote = function(vote) {
-  debugger;
   var review_id = vote.review_id;
   if(_votes[review_id]){
     _votes[review_id].push(vote);
