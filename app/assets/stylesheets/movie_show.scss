@@ -78,6 +78,19 @@
   border-top: 5px solid black;
 }
 
+.Upvote {
+  margin: 0px 20px;
+  color: green;
+}
+
+.Downvote {
+  color: red;
+}
+
+.Vote:hover {
+  cursor: pointer;
+}
+
 .reviewForm {
   width: 90%;
   position: relative;

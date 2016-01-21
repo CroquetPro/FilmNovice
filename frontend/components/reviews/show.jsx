@@ -92,20 +92,24 @@ var Show = React.createClass({
 
   render: function(){
     var currentUser = UserStore.currentUser();
+
+    var ownerButtons = <div className="buttons">
+      <button onClick={this.handleEdit}
+        className="myButton">Edit</button>
+      <button onClick={this.handleDelete}
+        className="myButton">Delete</button>
+      </div>
+
+
+    var voteIcons = <div className="buttons">
+        <i className='fa fa-thumbs-o-up Upvote Vote' onClick={this.handleVote}/>
+        <i className='fa fa-thumbs-o-down Downvote Vote' />
+      </div>
+
     if (currentUser && currentUser.id === this.props.review.user_id){
-      var button1text = "Edit Review";
-      var button1class = "myButton"
-      var button1action = this.handleEdit;
-      var button2text = "Delete Review";
-      var button2class = "myButton"
-      var button2action = this.handleDelete;
+      var buttons = ownerButtons
     } else {
-      var button1text = "Upvote";
-      var button1class = "myButton"
-      var button1action = this.handleVote;
-      var button2text = "Downvote";
-      var button2class = "myButton"
-      var button2action = this.handleVote;
+      var buttons = voteIcons
     }
 
     if (this.state.edit) {
@@ -118,12 +122,7 @@ var Show = React.createClass({
             <h2>{this.props.review.title}</h2>
             <h6>Vote score: {this.state.vote_score}</h6>
             <h6>by: {this.props.review.author_name}</h6>
-            <div className="buttons">
-              <button onClick={button1action}
-                    className={button1class}>{button1text}</button>
-              <button onClick={button2action}
-                    className={button2class}>{button2text}</button>
-            </div>
+            {buttons}
             <h3>{this.props.review.body}</h3>
         </div>
       )
