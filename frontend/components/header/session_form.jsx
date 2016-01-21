@@ -31,13 +31,13 @@ var SessionForm = React.createClass({
           <input
               type="text"
               valueLink={this.linkState('username')} />
-            <button onClick={this.handleBack}>Back</button>
+            <button className="myButton" onClick={this.handleBack}>Back</button>
           <br></br>
           <label>Password:</label>
           <input
               type="password"
               valueLink={this.linkState('password')} />
-          <button onClick={this.handleSubmit}>Submit</button>
+          <button className="myButton" onClick={this.handleSubmit}>Submit</button>
         </form>
       </div>
     )

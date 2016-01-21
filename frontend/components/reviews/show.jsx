@@ -94,14 +94,18 @@ var Show = React.createClass({
     var currentUser = UserStore.currentUser();
     if (currentUser && currentUser.id === this.props.review.user_id){
       var button1text = "Edit Review";
+      var button1class = "myButton"
       var button1action = this.handleEdit;
       var button2text = "Delete Review";
+      var button2class = "myButton"
       var button2action = this.handleDelete;
     } else {
       var button1text = "Upvote";
-        var button1action = this.handleVote;
-        var button2text = "Downvote";
-        var button2action = this.handleVote;
+      var button1class = "myButton"
+      var button1action = this.handleVote;
+      var button2text = "Downvote";
+      var button2class = "myButton"
+      var button2action = this.handleVote;
     }
 
     if (this.state.edit) {
@@ -116,9 +120,9 @@ var Show = React.createClass({
             <h6>by: {this.props.review.author_name}</h6>
             <div className="buttons">
               <button onClick={button1action}
-                    className={button1text}>{button1text}</button>
+                    className={button1class}>{button1text}</button>
               <button onClick={button2action}
-                    className={button2text}>{button2text}</button>
+                    className={button2class}>{button2text}</button>
             </div>
             <h3>{this.props.review.body}</h3>
         </div>

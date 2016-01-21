@@ -92,14 +92,14 @@ var Show = React.createClass({
         return  <li key={review.id}><Review review={review} movie={movie} /></li>
       });
       var form = (this.state.form) ? <li><Form movieId={parseInt(this.props.params['movieId'])} /></li> : null;
-      var button = (this.state.form) ? null : <button onClick={this.reviewForm}>New Review</button>;
+      var button = (this.state.form) ? null : <button className="myButton" onClick={this.reviewForm}>New Review</button>;
       // <button onClick={this.handleDelete}>Delete Movie</button>
       return(
         <div className='show'>
           <div className="movie">
-            <button onClick={this.handleBack}>Back to Movies</button>
+            <button className="myButton" onClick={this.handleBack}>Back to Movies</button>
             <h1>{this.state.movie.title}</h1>
-            <button onClick={this.handleEdit}>Edit Movie</button>
+            <button className="myButton" onClick={this.handleEdit}>Edit Movie</button>
             <img src={this.state.movie.image_url} className="img-responsive" />
             <h2>Released: {this.state.movie.year}</h2>
             <h2>Directed by: {this.state.movie.director}</h2>

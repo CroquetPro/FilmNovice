@@ -69,7 +69,7 @@ var ReviewForm = React.createClass({
     var buttonText = this.props.review ? "Edit Review" : "Create Review";
     return(
       <div className="reviewForm">
-        <button onClick={this.handleBack} className="Left">Back to Movie</button>
+        <button className="myButton Left" onClick={this.handleBack} >Back to Movie</button>
         <h2>{buttonText}</h2>
         <form onSubmit={this.handleSubmit} >
           <label>Title:</label>
@@ -82,7 +82,7 @@ var ReviewForm = React.createClass({
           <textarea class="form-control" rows="2"
                       valueLink={this.linkState('body')}/>
           <br></br>
-          <input type="submit" className="Right" value={buttonText} />
+          <button className="myButton Right" >{buttonText}</button>
         </form>
       </div>
     )
