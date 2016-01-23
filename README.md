@@ -1,16 +1,16 @@
 # Film Novice
 Film Novice is a web application inspired by Rap Genius built using Ruby on
 Rails and React.js.
-Film Novice allows users to:
 
-#### When Visiting:
+###Film Novice allows users to:
+When Visiting:
 - View Movies Index
 - View Movie Details including cast/crew/plot synopsis
 - View Movie Reviews contributed by users
 - Search for movies
 - Create an account
 
-#### When Signed Up:
+When Signed Up:
 - Log in / Log out
 - Create, edit, and delete own reviews
 - Upvote or Downvote other user's reviews (one vote per review)
@@ -18,7 +18,7 @@ Film Novice allows users to:
 
 [Live Site](http://www.filmnovice.xyz)
 
-## Design Docs
+### Design Docs
 * [View Wireframes](https://github.com/CroquetPro/FilmNovice/blob/master/project-proposal/docs/views.md)
 * [DB schema](https://github.com/CroquetPro/FilmNovice/blob/master/project-proposal/docs/schema.md)
 
